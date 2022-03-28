@@ -153,7 +153,6 @@ class Graph:
         m = {}
         f = open(f'Iter_{iter}.dot', 'w')
         f.write('digraph Iter'+str(iter)+' {\n')
-        if 
         for i, v in enumerate(self.vertexes):
             x = i+1
             wi = v.w if v.w != sys.maxsize else "+INF"
