@@ -2,8 +2,6 @@ import sys
 
 import os
 
-import subprocess
-
 from PIL import Image
 
 class Vertex:
