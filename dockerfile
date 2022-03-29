@@ -6,7 +6,8 @@ WORKDIR /usr/src/app
 COPY . .
 
 RUN apt update
-RUN apt install graphviz 
-RUN pip3 install sys os PIL
+RUN apt install -y graphviz
+RUN pip3 install --upgrade pip
+RUN pip3 install pillow
 
 CMD ["python", "dijkstra.py"]

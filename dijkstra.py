@@ -121,7 +121,7 @@ class Graph:
                         f.write(f'v{x} -> v{y} [label="{w}"]\n')
         f.write('}')
         f.close()
-        os.system(f'dot.exe -Tpng Iter_{iter}.dot -o Iter_{iter}.png')
+        os.system(f'dot -Tpng Iter_{iter}.dot -o Iter_{iter}.png')
 
 def parser(V,E):
     links = []
