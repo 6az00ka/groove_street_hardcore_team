@@ -13,7 +13,6 @@ class Vertex:
         return self[attr]
 
 
-
 class Link:
     def __init__(self, i, j, bdir):
         self.i = i
@@ -45,7 +44,7 @@ class Graph:
         return (x,w)
     
     def search(self):
-        self.generate_dot(0, self.i_start)
+        self.generate_frame(0, self.i_start)
         for z in range(self.n):
             (i,wi) = self.min_w()
             if i<0:
@@ -63,9 +62,11 @@ class Graph:
                     self.paths[j] = i
             self.vertexes[i].done = True
             self.unseen.remove(i)
-            self.generate_dot(z+1, i)
+            self.generate_frame(z+1, i)
             o = z+1
-        return self.vertexes[self.i_finish].w
+        www = self.vertexes[self.i_finish].w
+        self.generate_last_frame(self.n+1,self.route(),www)
+        return www
 
     def route(self):
         path = []
@@ -75,7 +76,7 @@ class Graph:
             i = self.paths[i]
         path.append(self.i_start)
         return path[::-1]
-            
+     
     def update_links(self, links):
         for link in links:
             k0 = link.i + 1
@@ -94,10 +95,14 @@ class Graph:
                 return True
         return False
 
-    def generate_dot(self, iter, current):
+    def generate_frame(self, iter, current):
         m = {}
         f = open(f'Iter_{iter}.dot', 'w')
         f.write('digraph Iter'+str(iter)+' {\n')
+        f.write('label="Iteration = '+str(iter)+'"\n')
+        f.write('fontsize=32\n')
+        f.write('subgraph'+'{\n')
+        f.write('fontsize=14\n')
         for i, v in enumerate(self.vertexes):
             x = i+1
             wi = v.w if v.w != sys.maxsize else "+INF"
@@ -119,7 +124,51 @@ class Graph:
                         f.write(f'v{x} -> v{y} [label="{w}", dir=both]\n')
                     else:
                         f.write(f'v{x} -> v{y} [label="{w}"]\n')
-        f.write('}')
+        f.write('}\n}')
+        f.close()
+        os.system(f'dot -Tpng Iter_{iter}.dot -o Iter_{iter}.png')
+        
+    def generate_last_frame(self, iter, path, final_weight):
+        m = {}
+        mp = {}
+        j = path[0]
+        for i in path[1:]:
+            mp[f'{i}:{j}'] = True
+            mp[f'{j}:{i}'] = True
+            j = i
+        f = open(f'Iter_{iter}.dot', 'w')
+        search = str(final_weight)
+        f.write('digraph Iter'+str(iter)+' {\n')
+        f.write('label="Final Weight = '+search+'"\n')
+        f.write('fontsize=32\n')
+        f.write('subgraph'+'{\n')
+        f.write('fontsize=14\n')
+        for i, v in enumerate(self.vertexes):
+            x = i+1
+            wi = v.w if v.w != sys.maxsize else "+INF"
+            di = "X" if v.done else "O"
+            if i in path:
+                bzz = path.index(i)+1
+                f.write(f'v{x}[shape=circle,label="V{x}\\n{wi}\\n{di} {bzz}", style=filled, fillcolor=Salmon, color=Red];\n')
+            else:
+                f.write(f'v{x}[shape=circle,label="V{x}\\n{wi}\\n{di}"];\n')
+        for i, v in enumerate(self.vertexes):
+            x = i+1
+            for link in v.olinks:
+                j = link[0]
+                w = link[1]
+                y = j+1
+                if f'{i}:{j}' not in m:
+                    m[f'{i}:{j}'] = True
+                    m[f'{j}:{i}'] = True
+                    color = ""
+                    if f'{i}:{j}' in mp:
+                        color = ", color=Red"
+                    if self.lookup_pair(self.vertexes[j],i):
+                        f.write(f'v{x} -> v{y} [label="{w}", dir=both{color}]\n')
+                    else:
+                        f.write(f'v{x} -> v{y} [label="{w}"{color}]\n')
+        f.write('}\n}')
         f.close()
         os.system(f'dot -Tpng Iter_{iter}.dot -o Iter_{iter}.png')
 
@@ -133,7 +182,7 @@ def parser(V,E):
 
 def png_to_gif(V):
     frames = []
-    for i in range(len(V)+1):
+    for i in range(len(V)+2):
         new_frame = Image.open(f'Iter_{i}.png')
         frames.append(new_frame)
     frames[0].save('Graph.gif', format='GIF', append_images=frames[1:], save_all=True, duration=1000, loop=0)
@@ -158,6 +207,7 @@ E=[["v1","v2","0"],
    ["v6","v9","0"],
    ["v7","v9","0"],
    ["v8","v9","0"]]
+
 N = 3
 
 g = Graph(n=9, bias=N, i_start=0, i_finish=3)
@@ -165,6 +215,8 @@ g.update_links(parser(V,E))
 print(g.search())
 print([V[x] for x in g.route()])           
 png_to_gif(V)
+
 for i in range(len(V)+1):
-    os.remove(f'Iter_{i}.dot')
     os.remove(f'Iter_{i}.png')
+for i in range(len(V)+2):
+    os.remove(f'Iter_{i}.dot')
