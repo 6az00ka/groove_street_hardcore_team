@@ -10,4 +10,5 @@ RUN apt install -y graphviz
 RUN pip3 install --upgrade pip
 RUN pip3 install pillow
 
+
 CMD ["python", "dijkstra.py"]
