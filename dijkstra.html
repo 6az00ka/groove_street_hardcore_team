@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>dijkstra API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>dijkstra</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import sys
+
+import os
+
+from PIL import Image
+
+&#34;&#34;&#34;Алгоритм Дейкстры. Выполнил студент группы 181-331 Белов Павел. Модуль создан ночью 8 апреля 2022 года&#34;&#34;&#34;
+
+class Vertex:
+    &#34;&#34;&#34;Класс Вершина&#34;&#34;&#34;
+    def __init__(self):
+        self.w = sys.maxsize
+        &#34;&#34;&#34;Вес пути до вершины от старта. Принимает значение maxsize до тех пор, пока непройдёт итерация в алгоритме по этой вершине.&#34;&#34;&#34;
+        self.done = False
+        &#34;&#34;&#34;Данное значение показывает, рассмотрена ли вершина в процессе работы алгоритма, для того, чтобы избежать бесконечного выполнения алгоритма.&#34;&#34;&#34;
+        self.olinks = []
+        &#34;&#34;&#34;Двумерный массив: множество массивов длиной 2, включающие в себя вершины, с которыми данная вершина связана рёбрами, а также веса ребёр до этих вершин, включены в единый массив.&#34;&#34;&#34;
+    def __getattr__(self, attr):
+        &#34;&#34;&#34;Стандартный геттер для значения атрибута, подаваемого на вход. *Возможна ликвидация впоследствии...*&#34;&#34;&#34;
+        return self[attr]
+
+
+class Link:
+    &#34;&#34;&#34;Класс Ребро&#34;&#34;&#34;
+    def __init__(self, i, j, bdir):
+        self.i = i
+        &#34;&#34;&#34;Индекс первой вершины в ребре.&#34;&#34;&#34;
+        self.j = j
+        &#34;&#34;&#34;Индекс второй вершины в ребре.&#34;&#34;&#34;
+        self.bdir = bdir
+        &#34;&#34;&#34;Булевое значение направленности ребра (однонаправленное - False, двунаправленное - True).&#34;&#34;&#34;
+
+
+class Graph:
+    &#34;&#34;&#34;Класс Граф&#34;&#34;&#34;
+    def __init__(self, n, bias, i_start, i_finish):
+        self.vertexes = []
+        &#34;&#34;&#34;Массив объектов класса &#34;Вершина&#34; в графе.&#34;&#34;&#34;
+        self.paths = []
+        &#34;&#34;&#34;Массив (при инициализации содержащий только пометку стартовой вершины), который в начале поиска будет заполнен нулями. В процессе поиска кратчайшего пути в ячейке вершины, входящей в кратчайший путь, записывается номер ячейки связанной вершины.&#34;&#34;&#34;
+        self.unseen = [i for i in range(n)]
+        &#34;&#34;&#34;Массив вершин, не пройденных в процессе работы алгоритма.&#34;&#34;&#34;
+        self.bias = bias
+        &#34;&#34;&#34;Значение N из условия задачи.&#34;&#34;&#34;
+        self.n = n
+        &#34;&#34;&#34;Количество вершин в графе.&#34;&#34;&#34;
+        self.i_start = i_start
+        &#34;&#34;&#34;Индекс вершины, из которой нужно найти кратчайший путь.&#34;&#34;&#34;
+        self.i_finish = i_finish
+        &#34;&#34;&#34;Индекс вершины, в которую нужно найти кратчайший путь.&#34;&#34;&#34;
+        # Заполнение массива вершин и пометка стартовой вершины
+        for x in range(n):
+            self.vertexes.append(Vertex())
+            self.paths.append(i_start)
+        self.vertexes[self.i_start].w = 0
+        
+    
+    def min_w(self):
+        &#34;&#34;&#34;Метод, выполняющий поиск ближайшей вершины и веса пути до неё. Возвращает индекс вершины и вес пути до неё.&#34;&#34;&#34;
+        w = sys.maxsize
+        x = -1
+        for k in self.unseen:
+            if self.vertexes[k].w &lt; w:
+                w = self.vertexes[k].w
+                x = k
+        return (x,w)
+    
+    def search(self):
+        &#34;&#34;&#34;Метод, выполняющий расчёт общего веса кратчайшего пути, который возвращается на выходе.&#34;&#34;&#34;
+        self.generate_frame(0, self.i_start)
+        for z in range(self.n):
+            (i,wi) = self.min_w()
+            if i&lt;0:
+                print(&#34;\nNot enough Links\n&#34;)
+                quit()
+            for link in self.vertexes[i].olinks:
+                j = link[0]
+                if self.vertexes[j].done:
+                    continue
+                w = link[1]
+                new_w = wi+w
+                wj = self.vertexes[j].w
+                if new_w &lt; wj:
+                    self.vertexes[j].w = new_w
+                    self.paths[j] = i
+            self.vertexes[i].done = True
+            self.unseen.remove(i)
+            self.generate_frame(z+1, i)
+            o = z+1
+        www = self.vertexes[self.i_finish].w
+        self.generate_last_frame(self.n+1,self.route(),www)
+        return www
+
+    def route(self):
+        &#34;&#34;&#34;Метод, выстраивающий кратчайший путь из полученных расчётов и заполненного массива paths[] и возвращающий массив индексов вершин кратчайшего пути в порядке от стартовой до конечной вершин.&#34;&#34;&#34;
+        path = []
+        i = self.i_finish
+        while i != self.i_start:
+            path.append(i)
+            i = self.paths[i]
+        path.append(self.i_start)
+        return path[::-1]
+     
+    def update_links(self, links):
+        &#34;&#34;&#34;Метод, распределяющий данные о вершинах и их связях из массива объектов класса &#34;Ребро&#34;, подаваемого на вход, а также рассчитывающий веса рёбер.&#34;&#34;&#34;
+        for link in links:
+            k0 = link.i + 1
+            k1 = link.j + 1
+            w = (self.bias * ((k0**2)+(k1**2)) + k0 + k1) % 10
+            v = self.vertexes[link.i]
+            v.olinks.append((link.j, w))
+            if link.bdir == True:
+                v = self.vertexes[link.j]
+                v.olinks.append((link.i, w))
+    
+    def lookup_pair(self,v,i):
+        &#34;&#34;&#34;Метод, проверяющий, есть ли у конкретного объекта класса &#34;Вершина&#34;, подаваемого на вход, связь с вершиной, индекс которой подаётся на вход, а также возвращающий True, если связь есть, и False, если связи нет.&#34;&#34;&#34;
+        for link in v.olinks:
+            j = link[0]
+            if i == j:
+                return True
+        return False
+
+    def generate_frame(self, iter, current):
+        &#34;&#34;&#34;Метод, производящий рисование состояния графа при помощи модуля GraphViz и конвертации *.dot-файлов в *.png-файлы утилитой dot.exe. На вход подаются номер итерации (0 - состояние графа до работы алгоритма) и индекс вершины, рассматриваемой на данной итерации.&#34;&#34;&#34;
+        m = {}
+        f = open(f&#39;Iter_{iter}.dot&#39;, &#39;w&#39;)
+        f.write(&#39;digraph Iter&#39;+str(iter)+&#39; {\n&#39;)
+        f.write(&#39;label=&#34;Iteration = &#39;+str(iter)+&#39;&#34;\n&#39;)
+        f.write(&#39;fontsize=32\n&#39;)
+        f.write(&#39;subgraph&#39;+&#39;{\n&#39;)
+        f.write(&#39;fontsize=14\n&#39;)
+        for i, v in enumerate(self.vertexes):
+            x = i+1
+            wi = v.w if v.w != sys.maxsize else &#34;+INF&#34;
+            di = &#34;X&#34; if v.done else &#34;O&#34;
+            if i == current:
+                f.write(f&#39;v{x}[shape=circle,label=&#34;V{x}\\n{wi}\\n{di}&#34;, color=Red];\n&#39;)
+            else:
+                f.write(f&#39;v{x}[shape=circle,label=&#34;V{x}\\n{wi}\\n{di}&#34;];\n&#39;)
+        for i, v in enumerate(self.vertexes):
+            x = i+1
+            for link in v.olinks:
+                j = link[0]
+                w = link[1]
+                y = j+1
+                if f&#39;{i}:{j}&#39; not in m:
+                    m[f&#39;{i}:{j}&#39;] = True
+                    m[f&#39;{j}:{i}&#39;] = True
+                    if self.lookup_pair(self.vertexes[j],i):
+                        f.write(f&#39;v{x} -&gt; v{y} [label=&#34;{w}&#34;, dir=both]\n&#39;)
+                    else:
+                        f.write(f&#39;v{x} -&gt; v{y} [label=&#34;{w}&#34;]\n&#39;)
+        f.write(&#39;}\n}&#39;)
+        f.close()
+        os.system(f&#39;dot -Tpng Iter_{iter}.dot -o Iter_{iter}.png&#39;)
+        
+    def generate_last_frame(self, iter, path, final_weight):
+        &#34;&#34;&#34;Метод, производящий рисование состояния графа после работы алгоритма, аналогично generate_frame, но с выводом общего веса кратчайшего пути сверху, а также закрашиванием вершин, входящих в кратчайший путь.&#34;&#34;&#34;
+        m = {}
+        mp = {}
+        j = path[0]
+        for i in path[1:]:
+            mp[f&#39;{i}:{j}&#39;] = True
+            mp[f&#39;{j}:{i}&#39;] = True
+            j = i
+        f = open(f&#39;Iter_{iter}.dot&#39;, &#39;w&#39;)
+        search = str(final_weight)
+        f.write(&#39;digraph Iter&#39;+str(iter)+&#39; {\n&#39;)
+        f.write(&#39;label=&#34;Final Weight = &#39;+search+&#39;&#34;\n&#39;)
+        f.write(&#39;fontsize=32\n&#39;)
+        f.write(&#39;subgraph&#39;+&#39;{\n&#39;)
+        f.write(&#39;fontsize=14\n&#39;)
+        for i, v in enumerate(self.vertexes):
+            x = i+1
+            wi = v.w if v.w != sys.maxsize else &#34;+INF&#34;
+            di = &#34;X&#34; if v.done else &#34;O&#34;
+            if i in path:
+                bzz = path.index(i)+1
+                f.write(f&#39;v{x}[shape=circle,label=&#34;V{x}\\n{wi}\\n{di} {bzz}&#34;, style=filled, fillcolor=Salmon, color=Red];\n&#39;)
+            else:
+                f.write(f&#39;v{x}[shape=circle,label=&#34;V{x}\\n{wi}\\n{di}&#34;];\n&#39;)
+        for i, v in enumerate(self.vertexes):
+            x = i+1
+            for link in v.olinks:
+                j = link[0]
+                w = link[1]
+                y = j+1
+                if f&#39;{i}:{j}&#39; not in m:
+                    m[f&#39;{i}:{j}&#39;] = True
+                    m[f&#39;{j}:{i}&#39;] = True
+                    color = &#34;&#34;
+                    if f&#39;{i}:{j}&#39; in mp:
+                        color = &#34;, color=Red&#34;
+                    if self.lookup_pair(self.vertexes[j],i):
+                        f.write(f&#39;v{x} -&gt; v{y} [label=&#34;{w}&#34;, dir=both{color}]\n&#39;)
+                    else:
+                        f.write(f&#39;v{x} -&gt; v{y} [label=&#34;{w}&#34;{color}]\n&#39;)
+        f.write(&#39;}\n}&#39;)
+        f.close()
+        os.system(f&#39;dot -Tpng Iter_{iter}.dot -o Iter_{iter}.png&#39;)
+
+def parser(V,E):
+    &#34;&#34;&#34;Глобальная функция, производящая множество объектов класса &#34;Ребро&#34; из множеств вершин и ребёр, подаваемых на вход и оформленных в стиле условия из учебника.&#34;&#34;&#34;
+    links = []
+    for (vi, vj, bidir) in E:
+        i = V.index(vi)
+        j = V.index(vj)
+        links.append(Link(i,j,True if bidir == &#34;0&#34; else False))
+    return links      
+
+def png_to_gif(V):
+    &#34;&#34;&#34;Глобальная функция, производящая конвертацию множества картинок формата png в один файл формата gif с задержкой между кадрами в 1 секунду&#34;&#34;&#34;
+    frames = []
+    for i in range(len(V)+2):
+        new_frame = Image.open(f&#39;Iter_{i}.png&#39;)
+        frames.append(new_frame)
+    frames[0].save(&#39;Graph.gif&#39;, format=&#39;GIF&#39;, append_images=frames[1:], save_all=True, duration=1000, loop=0)
+
+#Вершины в стиле условия в учебнике
+V=[&#34;v1&#34;,&#34;v2&#34;,&#34;v3&#34;,&#34;v4&#34;,&#34;v5&#34;,&#34;v6&#34;,&#34;v7&#34;,&#34;v8&#34;,&#34;v9&#34;]
+#Рёбра в стиле условия в учебнике
+E=[[&#34;v1&#34;,&#34;v2&#34;,&#34;0&#34;],
+   [&#34;v1&#34;,&#34;v7&#34;,&#34;1&#34;],
+   [&#34;v1&#34;,&#34;v8&#34;,&#34;0&#34;],
+   [&#34;v1&#34;,&#34;v9&#34;,&#34;0&#34;],
+   [&#34;v2&#34;,&#34;v3&#34;,&#34;0&#34;],
+   [&#34;v2&#34;,&#34;v7&#34;,&#34;0&#34;],
+   [&#34;v2&#34;,&#34;v9&#34;,&#34;0&#34;],
+   [&#34;v3&#34;,&#34;v4&#34;,&#34;0&#34;],
+   [&#34;v3&#34;,&#34;v6&#34;,&#34;0&#34;],
+   [&#34;v3&#34;,&#34;v9&#34;,&#34;0&#34;],
+   [&#34;v4&#34;,&#34;v5&#34;,&#34;1&#34;],
+   [&#34;v4&#34;,&#34;v6&#34;,&#34;1&#34;],
+   [&#34;v4&#34;,&#34;v7&#34;,&#34;0&#34;],
+   [&#34;v5&#34;,&#34;v6&#34;,&#34;0&#34;],
+   [&#34;v6&#34;,&#34;v7&#34;,&#34;0&#34;],
+   [&#34;v6&#34;,&#34;v8&#34;,&#34;0&#34;],
+   [&#34;v6&#34;,&#34;v9&#34;,&#34;0&#34;],
+   [&#34;v7&#34;,&#34;v9&#34;,&#34;0&#34;],
+   [&#34;v8&#34;,&#34;v9&#34;,&#34;0&#34;]]
+#Значение N из условия
+def run(N):
+    &#34;&#34;&#34;Глобальная функция запуска модуля&#34;&#34;&#34;
+    g = Graph(n=len(V), bias=N, i_start=0, i_finish=3)
+    g.update_links(parser(V,E))
+    print(g.search())
+    print([V[x] for x in g.route()])           
+    png_to_gif(V)
+
+    #Удаление ненужных dot и png
+    for i in range(len(V)+1):
+        os.remove(f&#39;Iter_{i}.png&#39;)
+    for i in range(len(V)+2):
+        os.remove(f&#39;Iter_{i}.dot&#39;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="dijkstra.parser"><code class="name flex">
+<span>def <span class="ident">parser</span></span>(<span>V, E)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Глобальная функция, производящая множество объектов класса "Ребро" из множеств вершин и ребёр, подаваемых на вход и оформленных в стиле условия из учебника.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def parser(V,E):
+    &#34;&#34;&#34;Глобальная функция, производящая множество объектов класса &#34;Ребро&#34; из множеств вершин и ребёр, подаваемых на вход и оформленных в стиле условия из учебника.&#34;&#34;&#34;
+    links = []
+    for (vi, vj, bidir) in E:
+        i = V.index(vi)
+        j = V.index(vj)
+        links.append(Link(i,j,True if bidir == &#34;0&#34; else False))
+    return links      </code></pre>
+</details>
+</dd>
+<dt id="dijkstra.png_to_gif"><code class="name flex">
+<span>def <span class="ident">png_to_gif</span></span>(<span>V)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Глобальная функция, производящая конвертацию множества картинок формата png в один файл формата gif с задержкой между кадрами в 1 секунду</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def png_to_gif(V):
+    &#34;&#34;&#34;Глобальная функция, производящая конвертацию множества картинок формата png в один файл формата gif с задержкой между кадрами в 1 секунду&#34;&#34;&#34;
+    frames = []
+    for i in range(len(V)+2):
+        new_frame = Image.open(f&#39;Iter_{i}.png&#39;)
+        frames.append(new_frame)
+    frames[0].save(&#39;Graph.gif&#39;, format=&#39;GIF&#39;, append_images=frames[1:], save_all=True, duration=1000, loop=0)</code></pre>
+</details>
+</dd>
+<dt id="dijkstra.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>N)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Глобальная функция запуска модуля</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(N):
+    &#34;&#34;&#34;Глобальная функция запуска модуля&#34;&#34;&#34;
+    g = Graph(n=len(V), bias=N, i_start=0, i_finish=3)
+    g.update_links(parser(V,E))
+    print(g.search())
+    print([V[x] for x in g.route()])           
+    png_to_gif(V)
+
+    #Удаление ненужных dot и png
+    for i in range(len(V)+1):
+        os.remove(f&#39;Iter_{i}.png&#39;)
+    for i in range(len(V)+2):
+        os.remove(f&#39;Iter_{i}.dot&#39;)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="dijkstra.Graph"><code class="flex name class">
+<span>class <span class="ident">Graph</span></span>
+<span>(</span><span>n, bias, i_start, i_finish)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Класс Граф</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Graph:
+    &#34;&#34;&#34;Класс Граф&#34;&#34;&#34;
+    def __init__(self, n, bias, i_start, i_finish):
+        self.vertexes = []
+        &#34;&#34;&#34;Массив объектов класса &#34;Вершина&#34; в графе.&#34;&#34;&#34;
+        self.paths = []
+        &#34;&#34;&#34;Массив (при инициализации содержащий только пометку стартовой вершины), который в начале поиска будет заполнен нулями. В процессе поиска кратчайшего пути в ячейке вершины, входящей в кратчайший путь, записывается номер ячейки связанной вершины.&#34;&#34;&#34;
+        self.unseen = [i for i in range(n)]
+        &#34;&#34;&#34;Массив вершин, не пройденных в процессе работы алгоритма.&#34;&#34;&#34;
+        self.bias = bias
+        &#34;&#34;&#34;Значение N из условия задачи.&#34;&#34;&#34;
+        self.n = n
+        &#34;&#34;&#34;Количество вершин в графе.&#34;&#34;&#34;
+        self.i_start = i_start
+        &#34;&#34;&#34;Индекс вершины, из которой нужно найти кратчайший путь.&#34;&#34;&#34;
+        self.i_finish = i_finish
+        &#34;&#34;&#34;Индекс вершины, в которую нужно найти кратчайший путь.&#34;&#34;&#34;
+        # Заполнение массива вершин и пометка стартовой вершины
+        for x in range(n):
+            self.vertexes.append(Vertex())
+            self.paths.append(i_start)
+        self.vertexes[self.i_start].w = 0
+        
+    
+    def min_w(self):
+        &#34;&#34;&#34;Метод, выполняющий поиск ближайшей вершины и веса пути до неё. Возвращает индекс вершины и вес пути до неё.&#34;&#34;&#34;
+        w = sys.maxsize
+        x = -1
+        for k in self.unseen:
+            if self.vertexes[k].w &lt; w:
+                w = self.vertexes[k].w
+                x = k
+        return (x,w)
+    
+    def search(self):
+        &#34;&#34;&#34;Метод, выполняющий расчёт общего веса кратчайшего пути, который возвращается на выходе.&#34;&#34;&#34;
+        self.generate_frame(0, self.i_start)
+        for z in range(self.n):
+            (i,wi) = self.min_w()
+            if i&lt;0:
+                print(&#34;\nNot enough Links\n&#34;)
+                quit()
+            for link in self.vertexes[i].olinks:
+                j = link[0]
+                if self.vertexes[j].done:
+                    continue
+                w = link[1]
+                new_w = wi+w
+                wj = self.vertexes[j].w
+                if new_w &lt; wj:
+                    self.vertexes[j].w = new_w
+                    self.paths[j] = i
+            self.vertexes[i].done = True
+            self.unseen.remove(i)
+            self.generate_frame(z+1, i)
+            o = z+1
+        www = self.vertexes[self.i_finish].w
+        self.generate_last_frame(self.n+1,self.route(),www)
+        return www
+
+    def route(self):
+        &#34;&#34;&#34;Метод, выстраивающий кратчайший путь из полученных расчётов и заполненного массива paths[] и возвращающий массив индексов вершин кратчайшего пути в порядке от стартовой до конечной вершин.&#34;&#34;&#34;
+        path = []
+        i = self.i_finish
+        while i != self.i_start:
+            path.append(i)
+            i = self.paths[i]
+        path.append(self.i_start)
+        return path[::-1]
+     
+    def update_links(self, links):
+        &#34;&#34;&#34;Метод, распределяющий данные о вершинах и их связях из массива объектов класса &#34;Ребро&#34;, подаваемого на вход, а также рассчитывающий веса рёбер.&#34;&#34;&#34;
+        for link in links:
+            k0 = link.i + 1
+            k1 = link.j + 1
+            w = (self.bias * ((k0**2)+(k1**2)) + k0 + k1) % 10
+            v = self.vertexes[link.i]
+            v.olinks.append((link.j, w))
+            if link.bdir == True:
+                v = self.vertexes[link.j]
+                v.olinks.append((link.i, w))
+    
+    def lookup_pair(self,v,i):
+        &#34;&#34;&#34;Метод, проверяющий, есть ли у конкретного объекта класса &#34;Вершина&#34;, подаваемого на вход, связь с вершиной, индекс которой подаётся на вход, а также возвращающий True, если связь есть, и False, если связи нет.&#34;&#34;&#34;
+        for link in v.olinks:
+            j = link[0]
+            if i == j:
+                return True
+        return False
+
+    def generate_frame(self, iter, current):
+        &#34;&#34;&#34;Метод, производящий рисование состояния графа при помощи модуля GraphViz и конвертации *.dot-файлов в *.png-файлы утилитой dot.exe. На вход подаются номер итерации (0 - состояние графа до работы алгоритма) и индекс вершины, рассматриваемой на данной итерации.&#34;&#34;&#34;
+        m = {}
+        f = open(f&#39;Iter_{iter}.dot&#39;, &#39;w&#39;)
+        f.write(&#39;digraph Iter&#39;+str(iter)+&#39; {\n&#39;)
+        f.write(&#39;label=&#34;Iteration = &#39;+str(iter)+&#39;&#34;\n&#39;)
+        f.write(&#39;fontsize=32\n&#39;)
+        f.write(&#39;subgraph&#39;+&#39;{\n&#39;)
+        f.write(&#39;fontsize=14\n&#39;)
+        for i, v in enumerate(self.vertexes):
+            x = i+1
+            wi = v.w if v.w != sys.maxsize else &#34;+INF&#34;
+            di = &#34;X&#34; if v.done else &#34;O&#34;
+            if i == current:
+                f.write(f&#39;v{x}[shape=circle,label=&#34;V{x}\\n{wi}\\n{di}&#34;, color=Red];\n&#39;)
+            else:
+                f.write(f&#39;v{x}[shape=circle,label=&#34;V{x}\\n{wi}\\n{di}&#34;];\n&#39;)
+        for i, v in enumerate(self.vertexes):
+            x = i+1
+            for link in v.olinks:
+                j = link[0]
+                w = link[1]
+                y = j+1
+                if f&#39;{i}:{j}&#39; not in m:
+                    m[f&#39;{i}:{j}&#39;] = True
+                    m[f&#39;{j}:{i}&#39;] = True
+                    if self.lookup_pair(self.vertexes[j],i):
+                        f.write(f&#39;v{x} -&gt; v{y} [label=&#34;{w}&#34;, dir=both]\n&#39;)
+                    else:
+                        f.write(f&#39;v{x} -&gt; v{y} [label=&#34;{w}&#34;]\n&#39;)
+        f.write(&#39;}\n}&#39;)
+        f.close()
+        os.system(f&#39;dot -Tpng Iter_{iter}.dot -o Iter_{iter}.png&#39;)
+        
+    def generate_last_frame(self, iter, path, final_weight):
+        &#34;&#34;&#34;Метод, производящий рисование состояния графа после работы алгоритма, аналогично generate_frame, но с выводом общего веса кратчайшего пути сверху, а также закрашиванием вершин, входящих в кратчайший путь.&#34;&#34;&#34;
+        m = {}
+        mp = {}
+        j = path[0]
+        for i in path[1:]:
+            mp[f&#39;{i}:{j}&#39;] = True
+            mp[f&#39;{j}:{i}&#39;] = True
+            j = i
+        f = open(f&#39;Iter_{iter}.dot&#39;, &#39;w&#39;)
+        search = str(final_weight)
+        f.write(&#39;digraph Iter&#39;+str(iter)+&#39; {\n&#39;)
+        f.write(&#39;label=&#34;Final Weight = &#39;+search+&#39;&#34;\n&#39;)
+        f.write(&#39;fontsize=32\n&#39;)
+        f.write(&#39;subgraph&#39;+&#39;{\n&#39;)
+        f.write(&#39;fontsize=14\n&#39;)
+        for i, v in enumerate(self.vertexes):
+            x = i+1
+            wi = v.w if v.w != sys.maxsize else &#34;+INF&#34;
+            di = &#34;X&#34; if v.done else &#34;O&#34;
+            if i in path:
+                bzz = path.index(i)+1
+                f.write(f&#39;v{x}[shape=circle,label=&#34;V{x}\\n{wi}\\n{di} {bzz}&#34;, style=filled, fillcolor=Salmon, color=Red];\n&#39;)
+            else:
+                f.write(f&#39;v{x}[shape=circle,label=&#34;V{x}\\n{wi}\\n{di}&#34;];\n&#39;)
+        for i, v in enumerate(self.vertexes):
+            x = i+1
+            for link in v.olinks:
+                j = link[0]
+                w = link[1]
+                y = j+1
+                if f&#39;{i}:{j}&#39; not in m:
+                    m[f&#39;{i}:{j}&#39;] = True
+                    m[f&#39;{j}:{i}&#39;] = True
+                    color = &#34;&#34;
+                    if f&#39;{i}:{j}&#39; in mp:
+                        color = &#34;, color=Red&#34;
+                    if self.lookup_pair(self.vertexes[j],i):
+                        f.write(f&#39;v{x} -&gt; v{y} [label=&#34;{w}&#34;, dir=both{color}]\n&#39;)
+                    else:
+                        f.write(f&#39;v{x} -&gt; v{y} [label=&#34;{w}&#34;{color}]\n&#39;)
+        f.write(&#39;}\n}&#39;)
+        f.close()
+        os.system(f&#39;dot -Tpng Iter_{iter}.dot -o Iter_{iter}.png&#39;)</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="dijkstra.Graph.bias"><code class="name">var <span class="ident">bias</span></code></dt>
+<dd>
+<div class="desc"><p>Значение N из условия задачи.</p></div>
+</dd>
+<dt id="dijkstra.Graph.i_finish"><code class="name">var <span class="ident">i_finish</span></code></dt>
+<dd>
+<div class="desc"><p>Индекс вершины, в которую нужно найти кратчайший путь.</p></div>
+</dd>
+<dt id="dijkstra.Graph.i_start"><code class="name">var <span class="ident">i_start</span></code></dt>
+<dd>
+<div class="desc"><p>Индекс вершины, из которой нужно найти кратчайший путь.</p></div>
+</dd>
+<dt id="dijkstra.Graph.n"><code class="name">var <span class="ident">n</span></code></dt>
+<dd>
+<div class="desc"><p>Количество вершин в графе.</p></div>
+</dd>
+<dt id="dijkstra.Graph.paths"><code class="name">var <span class="ident">paths</span></code></dt>
+<dd>
+<div class="desc"><p>Массив (при инициализации содержащий только пометку стартовой вершины), который в начале поиска будет заполнен нулями. В процессе поиска кратчайшего пути в ячейке вершины, входящей в кратчайший путь, записывается номер ячейки связанной вершины.</p></div>
+</dd>
+<dt id="dijkstra.Graph.unseen"><code class="name">var <span class="ident">unseen</span></code></dt>
+<dd>
+<div class="desc"><p>Массив вершин, не пройденных в процессе работы алгоритма.</p></div>
+</dd>
+<dt id="dijkstra.Graph.vertexes"><code class="name">var <span class="ident">vertexes</span></code></dt>
+<dd>
+<div class="desc"><p>Массив объектов класса "Вершина" в графе.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="dijkstra.Graph.generate_frame"><code class="name flex">
+<span>def <span class="ident">generate_frame</span></span>(<span>self, iter, current)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Метод, производящий рисование состояния графа при помощи модуля GraphViz и конвертации <em>.dot-файлов в </em>.png-файлы утилитой dot.exe. На вход подаются номер итерации (0 - состояние графа до работы алгоритма) и индекс вершины, рассматриваемой на данной итерации.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_frame(self, iter, current):
+    &#34;&#34;&#34;Метод, производящий рисование состояния графа при помощи модуля GraphViz и конвертации *.dot-файлов в *.png-файлы утилитой dot.exe. На вход подаются номер итерации (0 - состояние графа до работы алгоритма) и индекс вершины, рассматриваемой на данной итерации.&#34;&#34;&#34;
+    m = {}
+    f = open(f&#39;Iter_{iter}.dot&#39;, &#39;w&#39;)
+    f.write(&#39;digraph Iter&#39;+str(iter)+&#39; {\n&#39;)
+    f.write(&#39;label=&#34;Iteration = &#39;+str(iter)+&#39;&#34;\n&#39;)
+    f.write(&#39;fontsize=32\n&#39;)
+    f.write(&#39;subgraph&#39;+&#39;{\n&#39;)
+    f.write(&#39;fontsize=14\n&#39;)
+    for i, v in enumerate(self.vertexes):
+        x = i+1
+        wi = v.w if v.w != sys.maxsize else &#34;+INF&#34;
+        di = &#34;X&#34; if v.done else &#34;O&#34;
+        if i == current:
+            f.write(f&#39;v{x}[shape=circle,label=&#34;V{x}\\n{wi}\\n{di}&#34;, color=Red];\n&#39;)
+        else:
+            f.write(f&#39;v{x}[shape=circle,label=&#34;V{x}\\n{wi}\\n{di}&#34;];\n&#39;)
+    for i, v in enumerate(self.vertexes):
+        x = i+1
+        for link in v.olinks:
+            j = link[0]
+            w = link[1]
+            y = j+1
+            if f&#39;{i}:{j}&#39; not in m:
+                m[f&#39;{i}:{j}&#39;] = True
+                m[f&#39;{j}:{i}&#39;] = True
+                if self.lookup_pair(self.vertexes[j],i):
+                    f.write(f&#39;v{x} -&gt; v{y} [label=&#34;{w}&#34;, dir=both]\n&#39;)
+                else:
+                    f.write(f&#39;v{x} -&gt; v{y} [label=&#34;{w}&#34;]\n&#39;)
+    f.write(&#39;}\n}&#39;)
+    f.close()
+    os.system(f&#39;dot -Tpng Iter_{iter}.dot -o Iter_{iter}.png&#39;)</code></pre>
+</details>
+</dd>
+<dt id="dijkstra.Graph.generate_last_frame"><code class="name flex">
+<span>def <span class="ident">generate_last_frame</span></span>(<span>self, iter, path, final_weight)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Метод, производящий рисование состояния графа после работы алгоритма, аналогично generate_frame, но с выводом общего веса кратчайшего пути сверху, а также закрашиванием вершин, входящих в кратчайший путь.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_last_frame(self, iter, path, final_weight):
+    &#34;&#34;&#34;Метод, производящий рисование состояния графа после работы алгоритма, аналогично generate_frame, но с выводом общего веса кратчайшего пути сверху, а также закрашиванием вершин, входящих в кратчайший путь.&#34;&#34;&#34;
+    m = {}
+    mp = {}
+    j = path[0]
+    for i in path[1:]:
+        mp[f&#39;{i}:{j}&#39;] = True
+        mp[f&#39;{j}:{i}&#39;] = True
+        j = i
+    f = open(f&#39;Iter_{iter}.dot&#39;, &#39;w&#39;)
+    search = str(final_weight)
+    f.write(&#39;digraph Iter&#39;+str(iter)+&#39; {\n&#39;)
+    f.write(&#39;label=&#34;Final Weight = &#39;+search+&#39;&#34;\n&#39;)
+    f.write(&#39;fontsize=32\n&#39;)
+    f.write(&#39;subgraph&#39;+&#39;{\n&#39;)
+    f.write(&#39;fontsize=14\n&#39;)
+    for i, v in enumerate(self.vertexes):
+        x = i+1
+        wi = v.w if v.w != sys.maxsize else &#34;+INF&#34;
+        di = &#34;X&#34; if v.done else &#34;O&#34;
+        if i in path:
+            bzz = path.index(i)+1
+            f.write(f&#39;v{x}[shape=circle,label=&#34;V{x}\\n{wi}\\n{di} {bzz}&#34;, style=filled, fillcolor=Salmon, color=Red];\n&#39;)
+        else:
+            f.write(f&#39;v{x}[shape=circle,label=&#34;V{x}\\n{wi}\\n{di}&#34;];\n&#39;)
+    for i, v in enumerate(self.vertexes):
+        x = i+1
+        for link in v.olinks:
+            j = link[0]
+            w = link[1]
+            y = j+1
+            if f&#39;{i}:{j}&#39; not in m:
+                m[f&#39;{i}:{j}&#39;] = True
+                m[f&#39;{j}:{i}&#39;] = True
+                color = &#34;&#34;
+                if f&#39;{i}:{j}&#39; in mp:
+                    color = &#34;, color=Red&#34;
+                if self.lookup_pair(self.vertexes[j],i):
+                    f.write(f&#39;v{x} -&gt; v{y} [label=&#34;{w}&#34;, dir=both{color}]\n&#39;)
+                else:
+                    f.write(f&#39;v{x} -&gt; v{y} [label=&#34;{w}&#34;{color}]\n&#39;)
+    f.write(&#39;}\n}&#39;)
+    f.close()
+    os.system(f&#39;dot -Tpng Iter_{iter}.dot -o Iter_{iter}.png&#39;)</code></pre>
+</details>
+</dd>
+<dt id="dijkstra.Graph.lookup_pair"><code class="name flex">
+<span>def <span class="ident">lookup_pair</span></span>(<span>self, v, i)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Метод, проверяющий, есть ли у конкретного объекта класса "Вершина", подаваемого на вход, связь с вершиной, индекс которой подаётся на вход, а также возвращающий True, если связь есть, и False, если связи нет.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def lookup_pair(self,v,i):
+    &#34;&#34;&#34;Метод, проверяющий, есть ли у конкретного объекта класса &#34;Вершина&#34;, подаваемого на вход, связь с вершиной, индекс которой подаётся на вход, а также возвращающий True, если связь есть, и False, если связи нет.&#34;&#34;&#34;
+    for link in v.olinks:
+        j = link[0]
+        if i == j:
+            return True
+    return False</code></pre>
+</details>
+</dd>
+<dt id="dijkstra.Graph.min_w"><code class="name flex">
+<span>def <span class="ident">min_w</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Метод, выполняющий поиск ближайшей вершины и веса пути до неё. Возвращает индекс вершины и вес пути до неё.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def min_w(self):
+    &#34;&#34;&#34;Метод, выполняющий поиск ближайшей вершины и веса пути до неё. Возвращает индекс вершины и вес пути до неё.&#34;&#34;&#34;
+    w = sys.maxsize
+    x = -1
+    for k in self.unseen:
+        if self.vertexes[k].w &lt; w:
+            w = self.vertexes[k].w
+            x = k
+    return (x,w)</code></pre>
+</details>
+</dd>
+<dt id="dijkstra.Graph.route"><code class="name flex">
+<span>def <span class="ident">route</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Метод, выстраивающий кратчайший путь из полученных расчётов и заполненного массива paths[] и возвращающий массив индексов вершин кратчайшего пути в порядке от стартовой до конечной вершин.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def route(self):
+    &#34;&#34;&#34;Метод, выстраивающий кратчайший путь из полученных расчётов и заполненного массива paths[] и возвращающий массив индексов вершин кратчайшего пути в порядке от стартовой до конечной вершин.&#34;&#34;&#34;
+    path = []
+    i = self.i_finish
+    while i != self.i_start:
+        path.append(i)
+        i = self.paths[i]
+    path.append(self.i_start)
+    return path[::-1]</code></pre>
+</details>
+</dd>
+<dt id="dijkstra.Graph.search"><code class="name flex">
+<span>def <span class="ident">search</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Метод, выполняющий расчёт общего веса кратчайшего пути, который возвращается на выходе.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def search(self):
+    &#34;&#34;&#34;Метод, выполняющий расчёт общего веса кратчайшего пути, который возвращается на выходе.&#34;&#34;&#34;
+    self.generate_frame(0, self.i_start)
+    for z in range(self.n):
+        (i,wi) = self.min_w()
+        if i&lt;0:
+            print(&#34;\nNot enough Links\n&#34;)
+            quit()
+        for link in self.vertexes[i].olinks:
+            j = link[0]
+            if self.vertexes[j].done:
+                continue
+            w = link[1]
+            new_w = wi+w
+            wj = self.vertexes[j].w
+            if new_w &lt; wj:
+                self.vertexes[j].w = new_w
+                self.paths[j] = i
+        self.vertexes[i].done = True
+        self.unseen.remove(i)
+        self.generate_frame(z+1, i)
+        o = z+1
+    www = self.vertexes[self.i_finish].w
+    self.generate_last_frame(self.n+1,self.route(),www)
+    return www</code></pre>
+</details>
+</dd>
+<dt id="dijkstra.Graph.update_links"><code class="name flex">
+<span>def <span class="ident">update_links</span></span>(<span>self, links)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Метод, распределяющий данные о вершинах и их связях из массива объектов класса "Ребро", подаваемого на вход, а также рассчитывающий веса рёбер.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_links(self, links):
+    &#34;&#34;&#34;Метод, распределяющий данные о вершинах и их связях из массива объектов класса &#34;Ребро&#34;, подаваемого на вход, а также рассчитывающий веса рёбер.&#34;&#34;&#34;
+    for link in links:
+        k0 = link.i + 1
+        k1 = link.j + 1
+        w = (self.bias * ((k0**2)+(k1**2)) + k0 + k1) % 10
+        v = self.vertexes[link.i]
+        v.olinks.append((link.j, w))
+        if link.bdir == True:
+            v = self.vertexes[link.j]
+            v.olinks.append((link.i, w))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="dijkstra.Link"><code class="flex name class">
+<span>class <span class="ident">Link</span></span>
+<span>(</span><span>i, j, bdir)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Класс Ребро</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Link:
+    &#34;&#34;&#34;Класс Ребро&#34;&#34;&#34;
+    def __init__(self, i, j, bdir):
+        self.i = i
+        &#34;&#34;&#34;Индекс первой вершины в ребре.&#34;&#34;&#34;
+        self.j = j
+        &#34;&#34;&#34;Индекс второй вершины в ребре.&#34;&#34;&#34;
+        self.bdir = bdir
+        &#34;&#34;&#34;Булевое значение направленности ребра (однонаправленное - False, двунаправленное - True).&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="dijkstra.Link.bdir"><code class="name">var <span class="ident">bdir</span></code></dt>
+<dd>
+<div class="desc"><p>Булевое значение направленности ребра (однонаправленное - False, двунаправленное - True).</p></div>
+</dd>
+<dt id="dijkstra.Link.i"><code class="name">var <span class="ident">i</span></code></dt>
+<dd>
+<div class="desc"><p>Индекс первой вершины в ребре.</p></div>
+</dd>
+<dt id="dijkstra.Link.j"><code class="name">var <span class="ident">j</span></code></dt>
+<dd>
+<div class="desc"><p>Индекс второй вершины в ребре.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="dijkstra.Vertex"><code class="flex name class">
+<span>class <span class="ident">Vertex</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Класс Вершина</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Vertex:
+    &#34;&#34;&#34;Класс Вершина&#34;&#34;&#34;
+    def __init__(self):
+        self.w = sys.maxsize
+        &#34;&#34;&#34;Вес пути до вершины от старта. Принимает значение maxsize до тех пор, пока непройдёт итерация в алгоритме по этой вершине.&#34;&#34;&#34;
+        self.done = False
+        &#34;&#34;&#34;Данное значение показывает, рассмотрена ли вершина в процессе работы алгоритма, для того, чтобы избежать бесконечного выполнения алгоритма.&#34;&#34;&#34;
+        self.olinks = []
+        &#34;&#34;&#34;Двумерный массив: множество массивов длиной 2, включающие в себя вершины, с которыми данная вершина связана рёбрами, а также веса ребёр до этих вершин, включены в единый массив.&#34;&#34;&#34;
+    def __getattr__(self, attr):
+        &#34;&#34;&#34;Стандартный геттер для значения атрибута, подаваемого на вход. *Возможна ликвидация впоследствии...*&#34;&#34;&#34;
+        return self[attr]</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="dijkstra.Vertex.done"><code class="name">var <span class="ident">done</span></code></dt>
+<dd>
+<div class="desc"><p>Данное значение показывает, рассмотрена ли вершина в процессе работы алгоритма, для того, чтобы избежать бесконечного выполнения алгоритма.</p></div>
+</dd>
+<dt id="dijkstra.Vertex.olinks"><code class="name">var <span class="ident">olinks</span></code></dt>
+<dd>
+<div class="desc"><p>Двумерный массив: множество массивов длиной 2, включающие в себя вершины, с которыми данная вершина связана рёбрами, а также веса ребёр до этих вершин, включены в единый массив.</p></div>
+</dd>
+<dt id="dijkstra.Vertex.w"><code class="name">var <span class="ident">w</span></code></dt>
+<dd>
+<div class="desc"><p>Вес пути до вершины от старта. Принимает значение maxsize до тех пор, пока непройдёт итерация в алгоритме по этой вершине.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h3>Dijkstra Algorithm<br>Perfomed by Pavel 6az00ka (<a href="https://t.me/baz00ka67">Telegram</a>).<br>Check the timestamps of commits in my public repository:<br><a href="https://github.com/6az00ka/groove_street_hardcore_team/tree/Belov">[Open GitHub]</a></h3>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="dijkstra.parser" href="#dijkstra.parser">parser</a></code></li>
+<li><code><a title="dijkstra.png_to_gif" href="#dijkstra.png_to_gif">png_to_gif</a></code></li>
+<li><code><a title="dijkstra.run" href="#dijkstra.run">run</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="dijkstra.Graph" href="#dijkstra.Graph">Graph</a></code></h4>
+<ul class="two-column">
+<li><code><a title="dijkstra.Graph.bias" href="#dijkstra.Graph.bias">bias</a></code></li>
+<li><code><a title="dijkstra.Graph.generate_frame" href="#dijkstra.Graph.generate_frame">generate_frame</a></code></li>
+<li><code><a title="dijkstra.Graph.generate_last_frame" href="#dijkstra.Graph.generate_last_frame">generate_last_frame</a></code></li>
+<li><code><a title="dijkstra.Graph.i_finish" href="#dijkstra.Graph.i_finish">i_finish</a></code></li>
+<li><code><a title="dijkstra.Graph.i_start" href="#dijkstra.Graph.i_start">i_start</a></code></li>
+<li><code><a title="dijkstra.Graph.lookup_pair" href="#dijkstra.Graph.lookup_pair">lookup_pair</a></code></li>
+<li><code><a title="dijkstra.Graph.min_w" href="#dijkstra.Graph.min_w">min_w</a></code></li>
+<li><code><a title="dijkstra.Graph.n" href="#dijkstra.Graph.n">n</a></code></li>
+<li><code><a title="dijkstra.Graph.paths" href="#dijkstra.Graph.paths">paths</a></code></li>
+<li><code><a title="dijkstra.Graph.route" href="#dijkstra.Graph.route">route</a></code></li>
+<li><code><a title="dijkstra.Graph.search" href="#dijkstra.Graph.search">search</a></code></li>
+<li><code><a title="dijkstra.Graph.unseen" href="#dijkstra.Graph.unseen">unseen</a></code></li>
+<li><code><a title="dijkstra.Graph.update_links" href="#dijkstra.Graph.update_links">update_links</a></code></li>
+<li><code><a title="dijkstra.Graph.vertexes" href="#dijkstra.Graph.vertexes">vertexes</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="dijkstra.Link" href="#dijkstra.Link">Link</a></code></h4>
+<ul class="">
+<li><code><a title="dijkstra.Link.bdir" href="#dijkstra.Link.bdir">bdir</a></code></li>
+<li><code><a title="dijkstra.Link.i" href="#dijkstra.Link.i">i</a></code></li>
+<li><code><a title="dijkstra.Link.j" href="#dijkstra.Link.j">j</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="dijkstra.Vertex" href="#dijkstra.Vertex">Vertex</a></code></h4>
+<ul class="">
+<li><code><a title="dijkstra.Vertex.done" href="#dijkstra.Vertex.done">done</a></code></li>
+<li><code><a title="dijkstra.Vertex.olinks" href="#dijkstra.Vertex.olinks">olinks</a></code></li>
+<li><code><a title="dijkstra.Vertex.w" href="#dijkstra.Vertex.w">w</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
