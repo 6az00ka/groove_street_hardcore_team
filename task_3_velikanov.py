@@ -166,7 +166,8 @@ def ayler_cycle(M, V):
 
 ######
 
-# python3 -m pdoc --html . --output-dir html_pdoc/ --force
+# python3 -m pdoc --html ./ --output-dir html_pdoc/ --force
+# python3 -m pdoc --html ./task_3_velikanov.py -- force
 
 ############
 
