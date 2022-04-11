@@ -1,0 +1,1152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>task1 API documentation</title>
+<meta name="description" content="**Документация к заданию №1 из темы &#34;Графы&#34;**
+**Выполнил студент уч.гр. 181-331 Махмадзиеев Али**
+**Данный алгоритм реализует:** …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>task1</code></h1>
+</header>
+<section id="section-intro">
+<h1 id="no1"><strong>Документация к заданию №1 из темы "Графы"</strong></h1>
+<h1 id="181-331"><strong>Выполнил студент уч.гр. 181-331 Махмадзиеев Али</strong></h1>
+<h2 id="_1"><strong>Данный алгоритм реализует:</strong></h2>
+<p>-<em>Отрисовку и создание графа по заданным ребрам и вершинам</em></p>
+<p>-<em>Построение маршрута, цепи, простой цепи, цикла, простого цикла, матрицы смежностей и матрицы инциденций для данного графа</em></p>
+<p>-<em>Преобразование данного неориентированного графа в ориентированный</em></p>
+<p>-<em>Построение ориентированного маршрута, пути, простого пути, контура, простого контура, матрицы смежностей и матрицы инциденций для данного графа</em></p>
+<h2 id="_2"><strong>Содержание алгоритма:</strong></h2>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># Задача №1 из темы &#34;ГРАФЫ&#34;
+
+# Импорты необходимых библиотек
+&#34;&#34;&#34;
+# **Документация к заданию №1 из темы &#34;Графы&#34;**
+# **Выполнил студент уч.гр. 181-331 Махмадзиеев Али**
+## **Данный алгоритм реализует:**
+
+-*Отрисовку и создание графа по заданным ребрам и вершинам*
+
+-*Построение маршрута, цепи, простой цепи, цикла, простого цикла, матрицы смежностей и матрицы инциденций для данного графа*
+
+-*Преобразование данного неориентированного графа в ориентированный*
+
+-*Построение ориентированного маршрута, пути, простого пути, контура, простого контура, матрицы смежностей и матрицы инциденций для данного графа*
+
+## **Содержание алгоритма:**
+&#34;&#34;&#34;
+import numpy as np
+import matplotlib as plt
+from IPython.display import Image
+from graphviz import Digraph
+import pydot
+import os
+import random
+import copy
+
+def fill_array_incedent(arrayIncedent, numV, count):
+    &#34;&#34;&#34;
+     **Функция заполнения матрицы инцидентности для неориентированного графа: **
+    &#34;&#34;&#34;
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if arraySmejnost[i][j] == 1:
+                arrayIncedent[i][count] = 1
+                arrayIncedent[j][count] = 1
+                count+=1
+    return(arrayIncedent)
+
+def fill_array_smejnost(arraySmejnost, numV):
+    &#34;&#34;&#34;
+    **Функция заполнения матрицы смежности для неориентированного графа: **
+    &#34;&#34;&#34;
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if arraySmejnost[i][j] == 1:
+                arraySmejnost[j][i] = 1
+    return(arraySmejnost)
+
+def route_array(route, numV):
+    &#34;&#34;&#34;
+    **Функция создания матрицы для поиска маршрутов в неориентированном графе:  **
+    &#34;&#34;&#34;
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if route[i][j] == 1:
+                route[j][i] = 1        
+    return(route)
+
+def route_graph_array(route, routeGraph, count, max, numV):
+    &#34;&#34;&#34;
+    **Функция поиска маршрута в неориентированном графе: **
+    &#34;&#34;&#34;
+    i=0
+    j=0
+    while count &lt; max:
+        while i&lt; numV:
+            while j &lt; numV:
+                if count == max:
+                        i=numV+1
+                        j=numV+1
+                elif route[i][j] == 1:
+                    routeGraph[0][count] = i+1
+                    routeGraph[1][count] = j+1
+                    i=j
+                    j=random.randint(0, numV-1)
+                    count+=1
+                elif (i == numV-1 and j == numV-1 and route[numV-1][numV-1] == 0):
+                    count = max
+                else:
+                    j+=1
+    #                 print(&#39;j: &#39;,i)
+            i+=1
+    #         print(&#39;i: &#39;,i)
+    return(routeGraph)
+
+def chain_array(chain, numV):
+    &#34;&#34;&#34;
+    **Функция создания матрицы для поиска цепи: **
+    &#34;&#34;&#34;
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if chain[i][j] == 1:
+                chain[j][i] = 1
+    return(chain)
+
+def chain_graph_array(chain, chainGraph, max, numV):
+    &#34;&#34;&#34;
+    **Функция поиска цепи в неориентированном графе:  **
+    &#34;&#34;&#34;
+    i=0
+    j=0
+    count=0 # Счетчик для выполнения цикла по поиску цепи
+    count1=0 # Счетчик для проверки строки массива на контрастные значения
+
+    while count &lt; max:
+
+        while i &lt; numV:
+
+            while j &lt; numV:
+
+                # Проверка счетчика на максимальное значение, если соответствует - выход из цикла
+
+                if count == max:    
+                    i=numV+1
+                    j=numV+1
+
+                # Проверка на наличие ребра
+
+                elif chain[i][j] == 1:
+                    chainGraph[0][count] = i+1 # Запись начальной точки ребра в массив
+                    chainGraph[1][count] = j+1 # Запись конечной точки ребра в массив
+                    chain[i][j]=-1 # Заполнение используемых ребер контрастными значениями
+                    chain[j][i]=-1 # Заполнение используемых ребер контрастными значениями
+                    i=j # Переход к конечной точке ребра
+                    j=random.randint(0, numV-1) # Генерация случайного значения j для оптимального построения цепи
+                    count+=1 # Перевод счетчика на +1
+
+                # Проверка на контрастные значения
+
+                elif chain[i][j] == -1:
+                    for z in range(0,numV-1): # Цикл для проверки всей строки массива
+                        if chain[i][z] == -1 or chain[i][z] == 0: # Если значения контрастные, то к счетчику прибавляется 1, когда счетчик достигнет максимального значения, общий цикл завершится
+                            count1+=1 # Перевод счетчика на +1
+                            if count1 &gt;= numV-1: # Проверка счетчика на максимальное значение
+                                count = max
+                    count1=0 # Обнуление счетчика в случае неудачи цикла
+                    j+=1 # Перевод счетчика j на +1
+                    if j&gt;=numV-1: # Если j &gt;= максимальному значению, он обнуляется
+                        j=0 # Обнуление j
+
+    #             elif (i == numV-1 and j == numV-1 and route[numV-1][numV-1] == 0):
+    #                 count = max
+
+                else:
+                    if j&gt;=numV-1:
+                        j=0
+                    else:
+                        j+=1
+            i+=1
+        count = max
+        return(chainGraph)
+    
+def simple_chain_array(simpleChain):
+    &#34;&#34;&#34;
+    **Функция создания матрицы для поиска простой цепи: **
+    &#34;&#34;&#34;
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if simpleChain[i][j] == 1:
+                simpleChain[j][i] = 1       
+    return(simpleChain)
+
+def simple_chain_graph_array(simpleChain, simpleChainGraph, max, numV):
+    &#34;&#34;&#34;
+    **Функция поиска простой цепи в неориентированном графе: **
+    &#34;&#34;&#34;
+    i=0
+    j=random.randint(0, numV-1)
+    count=0 # Счетчик для выполнения цикла по поиску цепи
+    count1=0 # Счетчик для проверки строки массива на контрастные значения
+
+    while count &lt; max:
+
+        while i &lt; numV:
+
+            while j &lt; numV:
+
+                # Проверка счетчика на максимальное значение, если соответствует - выход из цикла
+
+                if count == max:    
+                    i=numV+1
+                    j=numV+1
+
+                # Проверка на наличие ребра
+
+                elif simpleChain[i][j] == 1:
+                    simpleChainGraph[0][count] = i+1 # Запись начальной точки ребра в массив
+                    simpleChainGraph[1][count] = j+1 # Запись конечной точки ребра в массив
+                    for z in range(0,numV-1):
+                        simpleChain[i][z] = 0 # Заполнение всех остальных путей из вершины нулями, т.к. ими больше нельзя пользоваться
+                        simpleChain[z][i] = 0
+                    simpleChain[i][j]=-1
+                    simpleChain[j][i]=-1
+                    i=j # Переход к новой вершине
+                    j=random.randint(0, numV-1) # Генерация случайного значения j для оптимального построения цепи
+                    count+=1 # Перевод счетчика на +1
+
+                # Проверка на контрастные значения
+
+                elif simpleChain[i][j] == -1:
+                    for z in range(0,numV-1): # Цикл для проверки всей строки массива
+                        if simpleChain[i][z] == -1 or simpleChain[i][z] == 0: # Если значения контрастные, то к счетчику прибавляется 1, когда счетчик достигнет максимального значения, общий цикл завершится
+                            count1+=1 # Перевод счетчика на +1
+                            if count1 &gt;= numV-1: # Проверка счетчика на максимальное значение
+                                count = max
+                    count1=0 # Обнуление счетчика в случае неудачи цикла
+                    j+=1 # Перевод счетчика j на +1
+                    if j&gt;=numV-1: # Если j &gt;= максимальному значению, он обнуляется
+                        j=0 # Обнуление j
+
+    #             elif (i == numV-1 and j == numV-1 and route[numV-1][numV-1] == 0):
+    #                 count = max
+
+                else:
+                    if j&gt;=numV-1:
+                        j=0
+                    else:
+                        j+=1
+            i+=1
+        count = max
+        return(simpleChainGraph)
+    
+def oriented_smejnost_array(orientedArraySmejnost):
+    &#34;&#34;&#34;
+    **Функция создания ориентированной матрицы смежности: **
+    &#34;&#34;&#34;
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if orientedArraySmejnost[i][j] == 1:
+                orientedArraySmejnost[j][i] = 0
+    return(orientedArraySmejnost)
+
+def oriented_incedent_array(orientedArrayIncedent):
+    &#34;&#34;&#34;
+    **Функция создания ориентированной матрицы инцидентности: **
+    &#34;&#34;&#34;
+    count=0 # Счётчик, необходимый для передвижения по столбцам матрицы
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if orientedArraySmejnost[i][j] == 1:
+                orientedArrayIncedent[i][count] = 1
+                orientedArrayIncedent[j][count] = 1
+                count+=1
+    return(orientedArrayIncedent)
+
+
+def oriented_route_graph_array(orientedRoute, orientedRouteGraph, max, numV):
+    &#34;&#34;&#34;
+    **Функция создания матрицы для отрисовки ориентированного графа: **
+    &#34;&#34;&#34;
+    i=0
+    j=random.randint(0, numV-1)
+    count=0 
+
+    while count &lt; max:
+        while i&lt; numV:
+            while j &lt; numV:
+                if count == max:
+                        i=numV+1
+                        j=numV+1
+                elif orientedRoute[i][j] == 1:
+                    orientedRouteGraph[0][count] = i+1
+                    orientedRouteGraph[1][count] = j+1
+                    i=j
+                    j=random.randint(0, numV-1)
+                    count+=1
+    #                 print(&#39;i: &#39;,i)
+    #                 print(&#39;j: &#39;,i)
+                elif (i == numV-1 and j == numV-1 and orientedRoute[numV-1][numV-1] == 0):
+                    count = max
+                else:
+                    j+=1
+    #                 count+=1
+    #                 print(&#39;j: &#39;,i)
+            i+=1
+    #         print(&#39;i: &#39;,i)
+    return(orientedRouteGraph)
+
+def oriented_way_graph_array(orientedWay, orientedWayGraph, max, numV):
+    &#34;&#34;&#34;
+    **Функция для поиска пути в ориентированном графе: **
+    &#34;&#34;&#34;
+    count=0
+    i=0
+    j=random.randint(0, numV-1)
+    while count &lt; max:
+        while i&lt; numV:
+            while j &lt; numV:
+                if count == max:
+                        i=numV+1
+                        j=numV+1
+                elif orientedWay[i][j] == 1:
+                    orientedWayGraph[0][count] = i+1
+                    orientedWayGraph[1][count] = j+1
+                    i=j
+                    j=random.randint(0, numV-1)
+                    count+=1
+                elif (i == numV-1 and j == numV-1 and orientedWay[numV-1][numV-1] == 0):
+                    count = max
+
+                else:
+                    j+=1
+
+            i+=1
+    return(orientedWayGraph)
+
+
+def oriented_simple_way_graph_array(orientedSimpleWay, orientedSimpleWayGraph, max, numV):
+    &#34;&#34;&#34;
+    **Функция для поиска простого пути в ориентированном графе: **
+    &#34;&#34;&#34;
+    i=0
+    j=random.randint(0,numV-1)
+    count=0 # Счетчик для выполнения цикла по поиску простого пути
+    count1=0 # Счетчик для проверки строки массива на контрастные значения
+
+    while count &lt; max:
+
+        while i &lt; numV:
+
+            while j &lt; numV:
+
+                # Проверка счетчика на максимальное значение, если соответствует - выход из цикла
+
+                if count == max:    
+                    i=numV+1
+                    j=numV+1
+
+                # Проверка на наличие ребра
+
+                elif orientedSimpleWay[i][j] == 1:
+                    orientedSimpleWayGraph[0][count] = i+1 # Запись начальной точки ребра в массив
+                    orientedSimpleWayGraph[1][count] = j+1 # Запись конечной точки ребра в массив
+                    orientedSimpleWay[i][j]=-1 # Заполнение используемых ребер контрастными значениями
+                    orientedSimpleWay[j][i]=-1 # Заполнение используемых ребер контрастными значениями
+                    i=j # Переход к конечной точке ребра
+                    j=random.randint(0, numV-1) # Генерация случайного значения j для оптимального построения цепи
+                    count+=1 # Перевод счетчика на +1
+
+                # Проверка на контрастные значения
+
+                elif orientedSimpleWay[i][j] == -1:
+                    for z in range(0,numV-1): # Цикл для проверки всей строки массива
+                        if orientedSimpleWay[i][z] == -1 or orientedSimpleWay[i][z] == 0: # Если значения контрастные, то к счетчику прибавляется 1, когда счетчик достигнет максимального значения, общий цикл завершится
+                            count1+=1 # Перевод счетчика на +1
+                            if count1 &gt;= numV-1: # Проверка счетчика на максимальное значение
+                                count = max
+                    count1=0 # Обнуление счетчика в случае неудачи цикла
+                    j+=1 # Перевод счетчика j на +1
+                    if j&gt;=numV-1: # Если j &gt;= максимальному значению, он обнуляется
+                        j=0 # Обнуление j
+
+    #             elif (i == numV-1 and j == numV-1 and route[numV-1][numV-1] == 0):
+    #                 count = max
+
+                else:
+                    if j&gt;=numV-1:
+                        j=0
+                    else:
+                        j+=1
+            i+=1
+        count = max
+    return(orientedSimpleWayGraph)
+
+# Заполнение важных переменных для составления графа
+inp=1 # Точка выхода с цикла заполнения ребрами
+numE=0 # Подсчёт количества рёбер
+# Ввод количества вершин для определения размерности массива
+# numV=int(input(&#39;Введите количество вершин: &#39;))
+# numV
+
+# # Заполнение матрицы ребрами, подсчёт количества рёбер.
+# while inp == 1:
+#     i=int(input(&#39;Введите 1 вершину: &#39;))
+#     j=int(input(&#39;Введите 2 вершину: &#39;))
+#     arraySmejnost[i-1][j-1]=1
+#     inp=int(input(&#39;Хотите добавить еще ребро? 1-да, 0 - нет:  &#39;))
+#     numE+=1
+# for i in range(0,numV):
+#     for j in range(0,numV):
+#         if arraySmejnost[i][j] == 1:
+#             arraySmejnost[j][i] = 1
+# arraySmejnost
+# # numE
+
+# *****ТЕСТОВЫЕ ЗНАЧЕНИЯ ВАРИАНТ 1.1*****
+
+
+numV=6
+numE=12
+arraySmejnost=np.zeros(numV*numV, int).reshape(numV,numV)
+arraySmejnost[0][1]=1
+arraySmejnost[0][2]=1
+arraySmejnost[0][4]=1
+arraySmejnost[0][5]=1
+arraySmejnost[1][2]=1
+arraySmejnost[1][3]=1
+arraySmejnost[1][5]=1
+arraySmejnost[2][3]=1
+arraySmejnost[2][4]=1
+arraySmejnost[3][4]=1
+arraySmejnost[3][5]=1
+arraySmejnost[4][5]=1
+
+
+# *****КОНЕЦ ТЕСТОВЫХ ЗНАЧЕНИЙ*****
+
+# Создание нулевого массива для матрицы смежности
+# arraySmejnost=np.zeros(numV*numV, int).reshape(numV,numV)
+# print(&#39;Вывод нулевой неориентированной матрицы смежности: &#39;)
+# arraySmejnost
+
+# Создание нулевого массива для матрицы инцедентности
+arrayIncedent=np.zeros(numV*numE, int).reshape(numV,numE)
+print(&#39;Вывод нулевой матрицы инцидентности: &#39;)
+print(arrayIncedent)
+
+# Заполнение матрицы инцедентности
+count=0 # Счётчик, необходимый для передвижения по столбцам матрицы
+
+fill_array_incedent(arrayIncedent, numV, count)
+print(&#39;Вывод неориентированной матрицы инцидентности: &#39;)            
+print(arrayIncedent)
+
+# Заполнение матрицы смежности
+
+fill_array_smejnost(arraySmejnost, numV)
+print(&#39;Вывод неориентированной матрицы смежности: &#39;)
+print(arraySmejnost)
+
+# Отрисовка неориентированного графа
+
+nonOrientedGraph = Digraph(comment=&#34;Неориентированный граф&#39;&#34;)
+
+# Создание вершин графа
+for i in range(0,numV):
+    nonOrientedGraph.node(f&#39;{i+1}&#39;,f&#39;{i+1}&#39;)
+
+# Создание массива под неориентированный граф
+graphArraySmejnost=copy.deepcopy(arraySmejnost)
+
+# Запись ребер по матрице смежности
+for i in range(0,numV):
+    for j in range(0,numV):
+            if graphArraySmejnost[i][j] != 0:
+                nonOrientedGraph.edge(f&#39;{i+1}&#39;,f&#39;{j+1}&#39;, arrowhead=&#39;none&#39;)
+                graphArraySmejnost[j][i]=0
+                
+# Сохранение неориентированного графа
+nonOrientedGraph.save(&#39;nonOrientedGraph.dot&#39;, None)
+(nonOrientedGraph,) = pydot.graph_from_dot_file(&#39;nonOrientedGraph.dot&#39;)
+nonOrientedGraph.write_png(&#39;nonOrientedGraph.png&#39;)
+# display(Image(filename=&#39;nonOrientedGraph.png&#39;))
+os.remove(&#39;nonOrientedGraph.dot&#39;)
+
+
+# Маршрут для неориентированного графа
+
+route=copy.deepcopy(arraySmejnost)
+
+route_array(route, numV)            
+
+
+max=int(input(&#39;Введите размер маршрута: &#39;))
+routeGraph=np.zeros(2*max, int).reshape(2,max)
+count=0
+
+route_graph_array(route, routeGraph, count, max, numV)
+print(&#39;Получившийся маршрут для неориентированного графа: &#39;)         
+print(routeGraph)
+
+# Цепь для неориентированного графа 
+# Цепь - маршрут без повторяющихся рёбер
+
+chain=copy.deepcopy(arraySmejnost)
+# print(&#39;ВЫВОД СКОПИРОВАННОЙ МАТРИЦЫ: &#39;)
+# print(chain)
+chain_array(chain, numV)
+# print(&#39;ВЫВОД СКОПИРОВАННОЙ МАТРИЦЫ ПОСЛЕ ПРЕОБРАЗОВАНИЯ: &#39;)
+# print(chain)
+chainGraph=np.zeros(2*max, int).reshape(2,max)
+
+chain_graph_array(chain, chainGraph, max, numV)
+print(&#39;Получившаяся цепь: &#39;)
+print(chainGraph)
+# print(&#39;ВЫВОД СКОПИРОВАННОЙ МАТРИЦЫ ПОСЛЕ ПРЕОБРАЗОВАНИЯ: &#39;)
+# print(chain)
+
+# Простая цепь для неориентированного графа
+# Простая цепь - цепь, в которой не повторяются вершины
+
+simpleChain=copy.deepcopy(arraySmejnost)
+simple_chain_array(simpleChain)
+            
+
+max=int(input(&#39;Введите размер простой цепи: &#39;))
+simpleChainGraph=np.zeros(2*max, int).reshape(2,max)
+
+simple_chain_graph_array(simpleChain, simpleChainGraph, max, numV)
+print(&#39;Получившаяся простая цепь: &#39;)
+print(simpleChainGraph)
+
+
+# Цикл для неориентированного графа
+
+cycle=copy.deepcopy(arrayIncedent)
+
+
+
+
+# Простой цикл для неориентированного графа
+
+simpleCycle=copy.deepcopy(arrayIncedent)
+
+
+# Преобразование неориентированной матрицы смежности в ориентированную
+orientedArraySmejnost=copy.deepcopy(arraySmejnost)
+oriented_smejnost_array(orientedArraySmejnost)
+            
+print(&#39;Вывод ориентированной матрицы смежности: &#39;)
+orientedArraySmejnost
+
+# Создание ориентированной матрицы инцедентности
+orientedArrayIncedent=np.zeros(numV*numE, int).reshape(numV,numE)
+oriented_incedent_array(orientedArrayIncedent)
+
+print(&#39;Вывод ориентированной матрицы инцидентности: &#39;)
+orientedArrayIncedent
+
+#Отрисовка ориентированного графа
+
+orientedGraph= Digraph(comment=&#34;Ориентированный граф&#39;&#34;)
+
+# Создание вершин ориентированного графа
+for i in range(0,numV):
+    orientedGraph.node(f&#39;{i+1}&#39;,f&#39;{i+1}&#39;)
+
+# Запись ребер по матрице смежности
+for i in range(0,numV):
+    for j in range(0,numV):
+            if orientedArraySmejnost[i][j] != 0:
+                orientedGraph.edge(f&#39;{i+1}&#39;,f&#39;{j+1}&#39;)
+
+# Сохранение ориентированного графа
+orientedGraph.save(&#39;orientedGraph.dot&#39;, None)
+(orientedGraph,) = pydot.graph_from_dot_file(&#39;orientedGraph.dot&#39;)
+orientedGraph.write_png(&#39;orientedGraph.png&#39;)
+os.remove(&#39;orientedGraph.dot&#39;)
+# display(Image(filename=&#39;orientedGraph.png&#39;))
+
+# Ориентированный маршрут для ориентированного графа
+
+orientedRoute=copy.deepcopy(orientedArraySmejnost)
+
+max=int(input(&#39;Введите размер ориентированного маршрута: &#39;))
+orientedRouteGraph=np.zeros(2*max, int).reshape(2,max)
+
+oriented_route_graph_array(orientedRoute, orientedRouteGraph, max, numV)
+print(&#39;Маршрут в ориентированном графе: &#39;)
+print (orientedRouteGraph)
+
+# Путь для ориентированного графа
+
+orientedWay=copy.deepcopy(orientedArraySmejnost)
+
+
+max=int(input(&#39;Введите размер пути: &#39;))
+orientedWayGraph=np.zeros(2*max, int).reshape(2,max)
+oriented_way_graph_array(orientedWay, orientedWayGraph, max, numV)
+
+print(&#39;Путь в ориентированном графе: &#39;)
+print (orientedWayGraph)
+
+# Простой путь для ориентированного графа
+
+orientedSimpleWay=copy.deepcopy(orientedArraySmejnost)
+
+max=int(input(&#39;Введите размер пути: &#39;))
+orientedSimpleWayGraph=np.zeros(2*max, int).reshape(2,max)
+oriented_simple_way_graph_array(orientedSimpleWay, orientedSimpleWayGraph, max, numV)
+    
+    
+print(&#39;Путь в ориентированном графе: &#39;)
+print (orientedSimpleWayGraph)
+
+# Контур для ориентированного графа
+# Контур - это путь, у которого совпадает начальная и конечная вершины
+# !!!!!! СРАВНЕНИЕ КОНЕЧНОЙ ТОЧКИ С НАЧАЛЬНОЙ !!!!!!!!!
+
+
+
+# Простой контур для ориентированного графа
+# Простой контур - это простой путь, у которого совпадают начальные и конечные вершины</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="task1.chain_array"><code class="name flex">
+<span>def <span class="ident">chain_array</span></span>(<span>chain, numV)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Функция создания матрицы для поиска цепи: </strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def chain_array(chain, numV):
+    &#34;&#34;&#34;
+    **Функция создания матрицы для поиска цепи: **
+    &#34;&#34;&#34;
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if chain[i][j] == 1:
+                chain[j][i] = 1
+    return(chain)</code></pre>
+</details>
+</dd>
+<dt id="task1.chain_graph_array"><code class="name flex">
+<span>def <span class="ident">chain_graph_array</span></span>(<span>chain, chainGraph, max, numV)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Функция поиска цепи в неориентированном графе:
+</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def chain_graph_array(chain, chainGraph, max, numV):
+    &#34;&#34;&#34;
+    **Функция поиска цепи в неориентированном графе:  **
+    &#34;&#34;&#34;
+    i=0
+    j=0
+    count=0 # Счетчик для выполнения цикла по поиску цепи
+    count1=0 # Счетчик для проверки строки массива на контрастные значения
+
+    while count &lt; max:
+
+        while i &lt; numV:
+
+            while j &lt; numV:
+
+                # Проверка счетчика на максимальное значение, если соответствует - выход из цикла
+
+                if count == max:    
+                    i=numV+1
+                    j=numV+1
+
+                # Проверка на наличие ребра
+
+                elif chain[i][j] == 1:
+                    chainGraph[0][count] = i+1 # Запись начальной точки ребра в массив
+                    chainGraph[1][count] = j+1 # Запись конечной точки ребра в массив
+                    chain[i][j]=-1 # Заполнение используемых ребер контрастными значениями
+                    chain[j][i]=-1 # Заполнение используемых ребер контрастными значениями
+                    i=j # Переход к конечной точке ребра
+                    j=random.randint(0, numV-1) # Генерация случайного значения j для оптимального построения цепи
+                    count+=1 # Перевод счетчика на +1
+
+                # Проверка на контрастные значения
+
+                elif chain[i][j] == -1:
+                    for z in range(0,numV-1): # Цикл для проверки всей строки массива
+                        if chain[i][z] == -1 or chain[i][z] == 0: # Если значения контрастные, то к счетчику прибавляется 1, когда счетчик достигнет максимального значения, общий цикл завершится
+                            count1+=1 # Перевод счетчика на +1
+                            if count1 &gt;= numV-1: # Проверка счетчика на максимальное значение
+                                count = max
+                    count1=0 # Обнуление счетчика в случае неудачи цикла
+                    j+=1 # Перевод счетчика j на +1
+                    if j&gt;=numV-1: # Если j &gt;= максимальному значению, он обнуляется
+                        j=0 # Обнуление j
+
+    #             elif (i == numV-1 and j == numV-1 and route[numV-1][numV-1] == 0):
+    #                 count = max
+
+                else:
+                    if j&gt;=numV-1:
+                        j=0
+                    else:
+                        j+=1
+            i+=1
+        count = max
+        return(chainGraph)</code></pre>
+</details>
+</dd>
+<dt id="task1.fill_array_incedent"><code class="name flex">
+<span>def <span class="ident">fill_array_incedent</span></span>(<span>arrayIncedent, numV, count)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Функция заполнения матрицы инцидентности для неориентированного графа: </strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fill_array_incedent(arrayIncedent, numV, count):
+    &#34;&#34;&#34;
+     **Функция заполнения матрицы инцидентности для неориентированного графа: **
+    &#34;&#34;&#34;
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if arraySmejnost[i][j] == 1:
+                arrayIncedent[i][count] = 1
+                arrayIncedent[j][count] = 1
+                count+=1
+    return(arrayIncedent)</code></pre>
+</details>
+</dd>
+<dt id="task1.fill_array_smejnost"><code class="name flex">
+<span>def <span class="ident">fill_array_smejnost</span></span>(<span>arraySmejnost, numV)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Функция заполнения матрицы смежности для неориентированного графа: </strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fill_array_smejnost(arraySmejnost, numV):
+    &#34;&#34;&#34;
+    **Функция заполнения матрицы смежности для неориентированного графа: **
+    &#34;&#34;&#34;
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if arraySmejnost[i][j] == 1:
+                arraySmejnost[j][i] = 1
+    return(arraySmejnost)</code></pre>
+</details>
+</dd>
+<dt id="task1.oriented_incedent_array"><code class="name flex">
+<span>def <span class="ident">oriented_incedent_array</span></span>(<span>orientedArrayIncedent)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Функция создания ориентированной матрицы инцидентности: </strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def oriented_incedent_array(orientedArrayIncedent):
+    &#34;&#34;&#34;
+    **Функция создания ориентированной матрицы инцидентности: **
+    &#34;&#34;&#34;
+    count=0 # Счётчик, необходимый для передвижения по столбцам матрицы
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if orientedArraySmejnost[i][j] == 1:
+                orientedArrayIncedent[i][count] = 1
+                orientedArrayIncedent[j][count] = 1
+                count+=1
+    return(orientedArrayIncedent)</code></pre>
+</details>
+</dd>
+<dt id="task1.oriented_route_graph_array"><code class="name flex">
+<span>def <span class="ident">oriented_route_graph_array</span></span>(<span>orientedRoute, orientedRouteGraph, max, numV)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Функция создания матрицы для отрисовки ориентированного графа: </strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def oriented_route_graph_array(orientedRoute, orientedRouteGraph, max, numV):
+    &#34;&#34;&#34;
+    **Функция создания матрицы для отрисовки ориентированного графа: **
+    &#34;&#34;&#34;
+    i=0
+    j=random.randint(0, numV-1)
+    count=0 
+
+    while count &lt; max:
+        while i&lt; numV:
+            while j &lt; numV:
+                if count == max:
+                        i=numV+1
+                        j=numV+1
+                elif orientedRoute[i][j] == 1:
+                    orientedRouteGraph[0][count] = i+1
+                    orientedRouteGraph[1][count] = j+1
+                    i=j
+                    j=random.randint(0, numV-1)
+                    count+=1
+    #                 print(&#39;i: &#39;,i)
+    #                 print(&#39;j: &#39;,i)
+                elif (i == numV-1 and j == numV-1 and orientedRoute[numV-1][numV-1] == 0):
+                    count = max
+                else:
+                    j+=1
+    #                 count+=1
+    #                 print(&#39;j: &#39;,i)
+            i+=1
+    #         print(&#39;i: &#39;,i)
+    return(orientedRouteGraph)</code></pre>
+</details>
+</dd>
+<dt id="task1.oriented_simple_way_graph_array"><code class="name flex">
+<span>def <span class="ident">oriented_simple_way_graph_array</span></span>(<span>orientedSimpleWay, orientedSimpleWayGraph, max, numV)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Функция для поиска простого пути в ориентированном графе: </strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def oriented_simple_way_graph_array(orientedSimpleWay, orientedSimpleWayGraph, max, numV):
+    &#34;&#34;&#34;
+    **Функция для поиска простого пути в ориентированном графе: **
+    &#34;&#34;&#34;
+    i=0
+    j=random.randint(0,numV-1)
+    count=0 # Счетчик для выполнения цикла по поиску простого пути
+    count1=0 # Счетчик для проверки строки массива на контрастные значения
+
+    while count &lt; max:
+
+        while i &lt; numV:
+
+            while j &lt; numV:
+
+                # Проверка счетчика на максимальное значение, если соответствует - выход из цикла
+
+                if count == max:    
+                    i=numV+1
+                    j=numV+1
+
+                # Проверка на наличие ребра
+
+                elif orientedSimpleWay[i][j] == 1:
+                    orientedSimpleWayGraph[0][count] = i+1 # Запись начальной точки ребра в массив
+                    orientedSimpleWayGraph[1][count] = j+1 # Запись конечной точки ребра в массив
+                    orientedSimpleWay[i][j]=-1 # Заполнение используемых ребер контрастными значениями
+                    orientedSimpleWay[j][i]=-1 # Заполнение используемых ребер контрастными значениями
+                    i=j # Переход к конечной точке ребра
+                    j=random.randint(0, numV-1) # Генерация случайного значения j для оптимального построения цепи
+                    count+=1 # Перевод счетчика на +1
+
+                # Проверка на контрастные значения
+
+                elif orientedSimpleWay[i][j] == -1:
+                    for z in range(0,numV-1): # Цикл для проверки всей строки массива
+                        if orientedSimpleWay[i][z] == -1 or orientedSimpleWay[i][z] == 0: # Если значения контрастные, то к счетчику прибавляется 1, когда счетчик достигнет максимального значения, общий цикл завершится
+                            count1+=1 # Перевод счетчика на +1
+                            if count1 &gt;= numV-1: # Проверка счетчика на максимальное значение
+                                count = max
+                    count1=0 # Обнуление счетчика в случае неудачи цикла
+                    j+=1 # Перевод счетчика j на +1
+                    if j&gt;=numV-1: # Если j &gt;= максимальному значению, он обнуляется
+                        j=0 # Обнуление j
+
+    #             elif (i == numV-1 and j == numV-1 and route[numV-1][numV-1] == 0):
+    #                 count = max
+
+                else:
+                    if j&gt;=numV-1:
+                        j=0
+                    else:
+                        j+=1
+            i+=1
+        count = max
+    return(orientedSimpleWayGraph)</code></pre>
+</details>
+</dd>
+<dt id="task1.oriented_smejnost_array"><code class="name flex">
+<span>def <span class="ident">oriented_smejnost_array</span></span>(<span>orientedArraySmejnost)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Функция создания ориентированной матрицы смежности: </strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def oriented_smejnost_array(orientedArraySmejnost):
+    &#34;&#34;&#34;
+    **Функция создания ориентированной матрицы смежности: **
+    &#34;&#34;&#34;
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if orientedArraySmejnost[i][j] == 1:
+                orientedArraySmejnost[j][i] = 0
+    return(orientedArraySmejnost)</code></pre>
+</details>
+</dd>
+<dt id="task1.oriented_way_graph_array"><code class="name flex">
+<span>def <span class="ident">oriented_way_graph_array</span></span>(<span>orientedWay, orientedWayGraph, max, numV)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Функция для поиска пути в ориентированном графе: </strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def oriented_way_graph_array(orientedWay, orientedWayGraph, max, numV):
+    &#34;&#34;&#34;
+    **Функция для поиска пути в ориентированном графе: **
+    &#34;&#34;&#34;
+    count=0
+    i=0
+    j=random.randint(0, numV-1)
+    while count &lt; max:
+        while i&lt; numV:
+            while j &lt; numV:
+                if count == max:
+                        i=numV+1
+                        j=numV+1
+                elif orientedWay[i][j] == 1:
+                    orientedWayGraph[0][count] = i+1
+                    orientedWayGraph[1][count] = j+1
+                    i=j
+                    j=random.randint(0, numV-1)
+                    count+=1
+                elif (i == numV-1 and j == numV-1 and orientedWay[numV-1][numV-1] == 0):
+                    count = max
+
+                else:
+                    j+=1
+
+            i+=1
+    return(orientedWayGraph)</code></pre>
+</details>
+</dd>
+<dt id="task1.route_array"><code class="name flex">
+<span>def <span class="ident">route_array</span></span>(<span>route, numV)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Функция создания матрицы для поиска маршрутов в неориентированном графе:
+</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def route_array(route, numV):
+    &#34;&#34;&#34;
+    **Функция создания матрицы для поиска маршрутов в неориентированном графе:  **
+    &#34;&#34;&#34;
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if route[i][j] == 1:
+                route[j][i] = 1        
+    return(route)</code></pre>
+</details>
+</dd>
+<dt id="task1.route_graph_array"><code class="name flex">
+<span>def <span class="ident">route_graph_array</span></span>(<span>route, routeGraph, count, max, numV)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Функция поиска маршрута в неориентированном графе: </strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def route_graph_array(route, routeGraph, count, max, numV):
+    &#34;&#34;&#34;
+    **Функция поиска маршрута в неориентированном графе: **
+    &#34;&#34;&#34;
+    i=0
+    j=0
+    while count &lt; max:
+        while i&lt; numV:
+            while j &lt; numV:
+                if count == max:
+                        i=numV+1
+                        j=numV+1
+                elif route[i][j] == 1:
+                    routeGraph[0][count] = i+1
+                    routeGraph[1][count] = j+1
+                    i=j
+                    j=random.randint(0, numV-1)
+                    count+=1
+                elif (i == numV-1 and j == numV-1 and route[numV-1][numV-1] == 0):
+                    count = max
+                else:
+                    j+=1
+    #                 print(&#39;j: &#39;,i)
+            i+=1
+    #         print(&#39;i: &#39;,i)
+    return(routeGraph)</code></pre>
+</details>
+</dd>
+<dt id="task1.simple_chain_array"><code class="name flex">
+<span>def <span class="ident">simple_chain_array</span></span>(<span>simpleChain)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Функция создания матрицы для поиска простой цепи: </strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def simple_chain_array(simpleChain):
+    &#34;&#34;&#34;
+    **Функция создания матрицы для поиска простой цепи: **
+    &#34;&#34;&#34;
+    for i in range(0,numV):
+        for j in range(0,numV):
+            if simpleChain[i][j] == 1:
+                simpleChain[j][i] = 1       
+    return(simpleChain)</code></pre>
+</details>
+</dd>
+<dt id="task1.simple_chain_graph_array"><code class="name flex">
+<span>def <span class="ident">simple_chain_graph_array</span></span>(<span>simpleChain, simpleChainGraph, max, numV)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Функция поиска простой цепи в неориентированном графе: </strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def simple_chain_graph_array(simpleChain, simpleChainGraph, max, numV):
+    &#34;&#34;&#34;
+    **Функция поиска простой цепи в неориентированном графе: **
+    &#34;&#34;&#34;
+    i=0
+    j=random.randint(0, numV-1)
+    count=0 # Счетчик для выполнения цикла по поиску цепи
+    count1=0 # Счетчик для проверки строки массива на контрастные значения
+
+    while count &lt; max:
+
+        while i &lt; numV:
+
+            while j &lt; numV:
+
+                # Проверка счетчика на максимальное значение, если соответствует - выход из цикла
+
+                if count == max:    
+                    i=numV+1
+                    j=numV+1
+
+                # Проверка на наличие ребра
+
+                elif simpleChain[i][j] == 1:
+                    simpleChainGraph[0][count] = i+1 # Запись начальной точки ребра в массив
+                    simpleChainGraph[1][count] = j+1 # Запись конечной точки ребра в массив
+                    for z in range(0,numV-1):
+                        simpleChain[i][z] = 0 # Заполнение всех остальных путей из вершины нулями, т.к. ими больше нельзя пользоваться
+                        simpleChain[z][i] = 0
+                    simpleChain[i][j]=-1
+                    simpleChain[j][i]=-1
+                    i=j # Переход к новой вершине
+                    j=random.randint(0, numV-1) # Генерация случайного значения j для оптимального построения цепи
+                    count+=1 # Перевод счетчика на +1
+
+                # Проверка на контрастные значения
+
+                elif simpleChain[i][j] == -1:
+                    for z in range(0,numV-1): # Цикл для проверки всей строки массива
+                        if simpleChain[i][z] == -1 or simpleChain[i][z] == 0: # Если значения контрастные, то к счетчику прибавляется 1, когда счетчик достигнет максимального значения, общий цикл завершится
+                            count1+=1 # Перевод счетчика на +1
+                            if count1 &gt;= numV-1: # Проверка счетчика на максимальное значение
+                                count = max
+                    count1=0 # Обнуление счетчика в случае неудачи цикла
+                    j+=1 # Перевод счетчика j на +1
+                    if j&gt;=numV-1: # Если j &gt;= максимальному значению, он обнуляется
+                        j=0 # Обнуление j
+
+    #             elif (i == numV-1 and j == numV-1 and route[numV-1][numV-1] == 0):
+    #                 count = max
+
+                else:
+                    if j&gt;=numV-1:
+                        j=0
+                    else:
+                        j+=1
+            i+=1
+        count = max
+        return(simpleChainGraph)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#no1">Документация к заданию №1 из темы "Графы"</a></li>
+<li><a href="#181-331">Выполнил студент уч.гр. 181-331 Махмадзиеев Али</a><ul>
+<li><a href="#_1">Данный алгоритм реализует:</a></li>
+<li><a href="#_2">Содержание алгоритма:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="task1.chain_array" href="#task1.chain_array">chain_array</a></code></li>
+<li><code><a title="task1.chain_graph_array" href="#task1.chain_graph_array">chain_graph_array</a></code></li>
+<li><code><a title="task1.fill_array_incedent" href="#task1.fill_array_incedent">fill_array_incedent</a></code></li>
+<li><code><a title="task1.fill_array_smejnost" href="#task1.fill_array_smejnost">fill_array_smejnost</a></code></li>
+<li><code><a title="task1.oriented_incedent_array" href="#task1.oriented_incedent_array">oriented_incedent_array</a></code></li>
+<li><code><a title="task1.oriented_route_graph_array" href="#task1.oriented_route_graph_array">oriented_route_graph_array</a></code></li>
+<li><code><a title="task1.oriented_simple_way_graph_array" href="#task1.oriented_simple_way_graph_array">oriented_simple_way_graph_array</a></code></li>
+<li><code><a title="task1.oriented_smejnost_array" href="#task1.oriented_smejnost_array">oriented_smejnost_array</a></code></li>
+<li><code><a title="task1.oriented_way_graph_array" href="#task1.oriented_way_graph_array">oriented_way_graph_array</a></code></li>
+<li><code><a title="task1.route_array" href="#task1.route_array">route_array</a></code></li>
+<li><code><a title="task1.route_graph_array" href="#task1.route_graph_array">route_graph_array</a></code></li>
+<li><code><a title="task1.simple_chain_array" href="#task1.simple_chain_array">simple_chain_array</a></code></li>
+<li><code><a title="task1.simple_chain_graph_array" href="#task1.simple_chain_graph_array">simple_chain_graph_array</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
