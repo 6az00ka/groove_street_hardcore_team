@@ -1,6 +1,21 @@
 # Задача №1 из темы "ГРАФЫ"
 
 # Импорты необходимых библиотек
+"""
+# **Документация к заданию №1 из темы "Графы"**
+# **Выполнил студент уч.гр. 181-331 Махмадзиеев Али**
+## **Данный алгоритм реализует:**
+
+-*Отрисовку и создание графа по заданным ребрам и вершинам*
+
+-*Построение маршрута, цепи, простой цепи, цикла, простого цикла, матрицы смежностей и матрицы инциденций для данного графа*
+
+-*Преобразование данного неориентированного графа в ориентированный*
+
+-*Построение ориентированного маршрута, пути, простого пути, контура, простого контура, матрицы смежностей и матрицы инциденций для данного графа*
+
+## **Содержание алгоритма:**
+"""
 import numpy as np
 import matplotlib as plt
 from IPython.display import Image
@@ -10,16 +25,40 @@ import os
 import random
 import copy
 
+
+def fill_array_smejnost_test(arraySmejnost):
+
+    arraySmejnost[0][1]=1
+    arraySmejnost[0][2]=1
+    arraySmejnost[0][4]=1
+    arraySmejnost[0][5]=1
+    arraySmejnost[1][2]=1
+    arraySmejnost[1][3]=1
+    arraySmejnost[1][5]=1
+    arraySmejnost[2][3]=1
+    arraySmejnost[2][4]=1
+    arraySmejnost[3][4]=1
+    arraySmejnost[3][5]=1
+    arraySmejnost[4][5]=1
+    return(arraySmejnost)
+
 def fill_array_incedent(arrayIncedent, numV, count):
+    """
+     **Функция заполнения матрицы инцидентности для неориентированного графа: **
+    """
     for i in range(0,numV):
         for j in range(0,numV):
             if arraySmejnost[i][j] == 1:
                 arrayIncedent[i][count] = 1
                 arrayIncedent[j][count] = 1
                 count+=1
+    
     return(arrayIncedent)
 
 def fill_array_smejnost(arraySmejnost, numV):
+    """
+    **Функция заполнения матрицы смежности для неориентированного графа: **
+    """
     for i in range(0,numV):
         for j in range(0,numV):
             if arraySmejnost[i][j] == 1:
@@ -27,6 +66,9 @@ def fill_array_smejnost(arraySmejnost, numV):
     return(arraySmejnost)
 
 def route_array(route, numV):
+    """
+    **Функция создания матрицы для поиска маршрутов в неориентированном графе:  **
+    """
     for i in range(0,numV):
         for j in range(0,numV):
             if route[i][j] == 1:
@@ -34,6 +76,9 @@ def route_array(route, numV):
     return(route)
 
 def route_graph_array(route, routeGraph, count, max, numV):
+    """
+    **Функция поиска маршрута в неориентированном графе: **
+    """
     i=0
     j=0
     while count < max:
@@ -58,6 +103,9 @@ def route_graph_array(route, routeGraph, count, max, numV):
     return(routeGraph)
 
 def chain_array(chain, numV):
+    """
+    **Функция создания матрицы для поиска цепи: **
+    """
     for i in range(0,numV):
         for j in range(0,numV):
             if chain[i][j] == 1:
@@ -65,6 +113,9 @@ def chain_array(chain, numV):
     return(chain)
 
 def chain_graph_array(chain, chainGraph, max, numV):
+    """
+    **Функция поиска цепи в неориентированном графе:  **
+    """
     i=0
     j=0
     count=0 # Счетчик для выполнения цикла по поиску цепи
@@ -119,6 +170,9 @@ def chain_graph_array(chain, chainGraph, max, numV):
         return(chainGraph)
     
 def simple_chain_array(simpleChain):
+    """
+    **Функция создания матрицы для поиска простой цепи: **
+    """
     for i in range(0,numV):
         for j in range(0,numV):
             if simpleChain[i][j] == 1:
@@ -126,6 +180,9 @@ def simple_chain_array(simpleChain):
     return(simpleChain)
 
 def simple_chain_graph_array(simpleChain, simpleChainGraph, max, numV):
+    """
+    **Функция поиска простой цепи в неориентированном графе: **
+    """
     i=0
     j=random.randint(0, numV-1)
     count=0 # Счетчик для выполнения цикла по поиску цепи
@@ -183,6 +240,9 @@ def simple_chain_graph_array(simpleChain, simpleChainGraph, max, numV):
         return(simpleChainGraph)
     
 def oriented_smejnost_array(orientedArraySmejnost):
+    """
+    **Функция создания ориентированной матрицы смежности: **
+    """
     for i in range(0,numV):
         for j in range(0,numV):
             if orientedArraySmejnost[i][j] == 1:
@@ -190,6 +250,9 @@ def oriented_smejnost_array(orientedArraySmejnost):
     return(orientedArraySmejnost)
 
 def oriented_incedent_array(orientedArrayIncedent):
+    """
+    **Функция создания ориентированной матрицы инцидентности: **
+    """
     count=0 # Счётчик, необходимый для передвижения по столбцам матрицы
     for i in range(0,numV):
         for j in range(0,numV):
@@ -201,6 +264,9 @@ def oriented_incedent_array(orientedArrayIncedent):
 
 
 def oriented_route_graph_array(orientedRoute, orientedRouteGraph, max, numV):
+    """
+    **Функция создания матрицы для отрисовки ориентированного графа: **
+    """
     i=0
     j=random.randint(0, numV-1)
     count=0 
@@ -230,6 +296,9 @@ def oriented_route_graph_array(orientedRoute, orientedRouteGraph, max, numV):
     return(orientedRouteGraph)
 
 def oriented_way_graph_array(orientedWay, orientedWayGraph, max, numV):
+    """
+    **Функция для поиска пути в ориентированном графе: **
+    """
     count=0
     i=0
     j=random.randint(0, numV-1)
@@ -256,6 +325,9 @@ def oriented_way_graph_array(orientedWay, orientedWayGraph, max, numV):
 
 
 def oriented_simple_way_graph_array(orientedSimpleWay, orientedSimpleWayGraph, max, numV):
+    """
+    **Функция для поиска простого пути в ориентированном графе: **
+    """
     i=0
     j=random.randint(0,numV-1)
     count=0 # Счетчик для выполнения цикла по поиску простого пути
@@ -332,212 +404,200 @@ numE=0 # Подсчёт количества рёбер
 
 # *****ТЕСТОВЫЕ ЗНАЧЕНИЯ ВАРИАНТ 1.1*****
 
+def main():
+    numV=6
+    numE=12
+    arraySmejnost=np.zeros(numV*numV, int).reshape(numV,numV)
+    fill_array_smejnost_test(arraySmejnost)
 
-numV=6
-numE=12
-arraySmejnost=np.zeros(numV*numV, int).reshape(numV,numV)
-arraySmejnost[0][1]=1
-arraySmejnost[0][2]=1
-arraySmejnost[0][4]=1
-arraySmejnost[0][5]=1
-arraySmejnost[1][2]=1
-arraySmejnost[1][3]=1
-arraySmejnost[1][5]=1
-arraySmejnost[2][3]=1
-arraySmejnost[2][4]=1
-arraySmejnost[3][4]=1
-arraySmejnost[3][5]=1
-arraySmejnost[4][5]=1
+    # *****КОНЕЦ ТЕСТОВЫХ ЗНАЧЕНИЙ*****
+
+    # Создание нулевого массива для матрицы смежности
+    # arraySmejnost=np.zeros(numV*numV, int).reshape(numV,numV)
+    # print('Вывод нулевой неориентированной матрицы смежности: ')
+    # arraySmejnost
+
+    # Создание нулевого массива для матрицы инцедентности
+    arrayIncedent=np.zeros(numV*numE, int).reshape(numV,numE)
+    print('Вывод нулевой матрицы инцидентности: ')
+    print(arrayIncedent)
+
+    # Заполнение матрицы инцедентности
+    count=0 # Счётчик, необходимый для передвижения по столбцам матрицы
+
+    fill_array_incedent(arrayIncedent, numV, count)
+    print('Вывод неориентированной матрицы инцидентности: ')            
+    print(arrayIncedent)
+
+    # Заполнение матрицы смежности
+
+    fill_array_smejnost(arraySmejnost, numV)
+    print('Вывод неориентированной матрицы смежности: ')
+    print(arraySmejnost)
+
+    # Отрисовка неориентированного графа
+
+    nonOrientedGraph = Digraph(comment="Неориентированный граф'")
+
+    # Создание вершин графа
+    for i in range(0,numV):
+        nonOrientedGraph.node(f'{i+1}',f'{i+1}')
+
+    # Создание массива под неориентированный граф
+    graphArraySmejnost=copy.deepcopy(arraySmejnost)
+
+    # Запись ребер по матрице смежности
+    for i in range(0,numV):
+        for j in range(0,numV):
+                if graphArraySmejnost[i][j] != 0:
+                    nonOrientedGraph.edge(f'{i+1}',f'{j+1}', arrowhead='none')
+                    graphArraySmejnost[j][i]=0
+                    
+    # Сохранение неориентированного графа
+    nonOrientedGraph.save('nonOrientedGraph.dot', None)
+    (nonOrientedGraph,) = pydot.graph_from_dot_file('nonOrientedGraph.dot')
+    nonOrientedGraph.write_png('nonOrientedGraph.png')
+    # display(Image(filename='nonOrientedGraph.png'))
+    os.remove('nonOrientedGraph.dot')
 
 
-# *****КОНЕЦ ТЕСТОВЫХ ЗНАЧЕНИЙ*****
+    # Маршрут для неориентированного графа
 
-# Создание нулевого массива для матрицы смежности
-# arraySmejnost=np.zeros(numV*numV, int).reshape(numV,numV)
-# print('Вывод нулевой неориентированной матрицы смежности: ')
-# arraySmejnost
+    route=copy.deepcopy(arraySmejnost)
 
-# Создание нулевого массива для матрицы инцедентности
-arrayIncedent=np.zeros(numV*numE, int).reshape(numV,numE)
-print('Вывод нулевой матрицы инцидентности: ')
-print(arrayIncedent)
+    route_array(route, numV)            
 
-# Заполнение матрицы инцедентности
-count=0 # Счётчик, необходимый для передвижения по столбцам матрицы
 
-fill_array_incedent(arrayIncedent, numV, count)
-print('Вывод неориентированной матрицы инцидентности: ')            
-print(arrayIncedent)
+    max=int(input('Введите размер маршрута: '))
+    routeGraph=np.zeros(2*max, int).reshape(2,max)
+    count=0
 
-# Заполнение матрицы смежности
+    route_graph_array(route, routeGraph, count, max, numV)
+    print('Получившийся маршрут для неориентированного графа: ')         
+    print(routeGraph)
 
-fill_array_smejnost(arraySmejnost, numV)
-print('Вывод неориентированной матрицы смежности: ')
-print(arraySmejnost)
+    # Цепь для неориентированного графа 
+    # Цепь - маршрут без повторяющихся рёбер
 
-# Отрисовка неориентированного графа
+    chain=copy.deepcopy(arraySmejnost)
+    # print('ВЫВОД СКОПИРОВАННОЙ МАТРИЦЫ: ')
+    # print(chain)
+    chain_array(chain, numV)
+    # print('ВЫВОД СКОПИРОВАННОЙ МАТРИЦЫ ПОСЛЕ ПРЕОБРАЗОВАНИЯ: ')
+    # print(chain)
+    chainGraph=np.zeros(2*max, int).reshape(2,max)
 
-nonOrientedGraph = Digraph(comment="Неориентированный граф'")
+    chain_graph_array(chain, chainGraph, max, numV)
+    print('Получившаяся цепь: ')
+    print(chainGraph)
+    # print('ВЫВОД СКОПИРОВАННОЙ МАТРИЦЫ ПОСЛЕ ПРЕОБРАЗОВАНИЯ: ')
+    # print(chain)
 
-# Создание вершин графа
-for i in range(0,numV):
-    nonOrientedGraph.node(f'{i+1}',f'{i+1}')
+    # Простая цепь для неориентированного графа
+    # Простая цепь - цепь, в которой не повторяются вершины
 
-# Создание массива под неориентированный граф
-graphArraySmejnost=copy.deepcopy(arraySmejnost)
-
-# Запись ребер по матрице смежности
-for i in range(0,numV):
-    for j in range(0,numV):
-            if graphArraySmejnost[i][j] != 0:
-                nonOrientedGraph.edge(f'{i+1}',f'{j+1}', arrowhead='none')
-                graphArraySmejnost[j][i]=0
+    simpleChain=copy.deepcopy(arraySmejnost)
+    simple_chain_array(simpleChain)
                 
-# Сохранение неориентированного графа
-nonOrientedGraph.save('nonOrientedGraph.dot', None)
-(nonOrientedGraph,) = pydot.graph_from_dot_file('nonOrientedGraph.dot')
-nonOrientedGraph.write_png('nonOrientedGraph.png')
-# display(Image(filename='nonOrientedGraph.png'))
-os.remove('nonOrientedGraph.dot')
+
+    max=int(input('Введите размер простой цепи: '))
+    simpleChainGraph=np.zeros(2*max, int).reshape(2,max)
+
+    simple_chain_graph_array(simpleChain, simpleChainGraph, max, numV)
+    print('Получившаяся простая цепь: ')
+    print(simpleChainGraph)
 
 
-# Маршрут для неориентированного графа
+    # Цикл для неориентированного графа
 
-route=copy.deepcopy(arraySmejnost)
-
-route_array(route, numV)            
-
-
-max=int(input('Введите размер маршрута: '))
-routeGraph=np.zeros(2*max, int).reshape(2,max)
-count=0
-
-route_graph_array(route, routeGraph, count, max, numV)
-print('Получившийся маршрут для неориентированного графа: ')         
-print(routeGraph)
-
-# Цепь для неориентированного графа 
-# Цепь - маршрут без повторяющихся рёбер
-
-chain=copy.deepcopy(arraySmejnost)
-# print('ВЫВОД СКОПИРОВАННОЙ МАТРИЦЫ: ')
-# print(chain)
-chain_array(chain, numV)
-# print('ВЫВОД СКОПИРОВАННОЙ МАТРИЦЫ ПОСЛЕ ПРЕОБРАЗОВАНИЯ: ')
-# print(chain)
-chainGraph=np.zeros(2*max, int).reshape(2,max)
-
-chain_graph_array(chain, chainGraph, max, numV)
-print('Получившаяся цепь: ')
-print(chainGraph)
-# print('ВЫВОД СКОПИРОВАННОЙ МАТРИЦЫ ПОСЛЕ ПРЕОБРАЗОВАНИЯ: ')
-# print(chain)
-
-# Простая цепь для неориентированного графа
-# Простая цепь - цепь, в которой не повторяются вершины
-
-simpleChain=copy.deepcopy(arraySmejnost)
-simple_chain_array(simpleChain)
-            
-
-max=int(input('Введите размер простой цепи: '))
-simpleChainGraph=np.zeros(2*max, int).reshape(2,max)
-
-simple_chain_graph_array(simpleChain, simpleChainGraph, max, numV)
-print('Получившаяся простая цепь: ')
-print(simpleChainGraph)
-
-
-# Цикл для неориентированного графа
-
-cycle=copy.deepcopy(arrayIncedent)
+    cycle=copy.deepcopy(arrayIncedent)
 
 
 
 
-# Простой цикл для неориентированного графа
+    # Простой цикл для неориентированного графа
 
-simpleCycle=copy.deepcopy(arrayIncedent)
-
-
-# Преобразование неориентированной матрицы смежности в ориентированную
-orientedArraySmejnost=copy.deepcopy(arraySmejnost)
-oriented_smejnost_array(orientedArraySmejnost)
-            
-print('Вывод ориентированной матрицы смежности: ')
-orientedArraySmejnost
-
-# Создание ориентированной матрицы инцедентности
-orientedArrayIncedent=np.zeros(numV*numE, int).reshape(numV,numE)
-oriented_incedent_array(orientedArrayIncedent)
-
-print('Вывод ориентированной матрицы инцидентности: ')
-orientedArrayIncedent
-
-#Отрисовка ориентированного графа
-
-orientedGraph= Digraph(comment="Ориентированный граф'")
-
-# Создание вершин ориентированного графа
-for i in range(0,numV):
-    orientedGraph.node(f'{i+1}',f'{i+1}')
-
-# Запись ребер по матрице смежности
-for i in range(0,numV):
-    for j in range(0,numV):
-            if orientedArraySmejnost[i][j] != 0:
-                orientedGraph.edge(f'{i+1}',f'{j+1}')
-
-# Сохранение ориентированного графа
-orientedGraph.save('orientedGraph.dot', None)
-(orientedGraph,) = pydot.graph_from_dot_file('orientedGraph.dot')
-orientedGraph.write_png('orientedGraph.png')
-os.remove('orientedGraph.dot')
-# display(Image(filename='orientedGraph.png'))
-
-# Ориентированный маршрут для ориентированного графа
-
-orientedRoute=copy.deepcopy(orientedArraySmejnost)
-
-max=int(input('Введите размер ориентированного маршрута: '))
-orientedRouteGraph=np.zeros(2*max, int).reshape(2,max)
-
-oriented_route_graph_array(orientedRoute, orientedRouteGraph, max, numV)
-print('Маршрут в ориентированном графе: ')
-print (orientedRouteGraph)
-
-# Путь для ориентированного графа
-
-orientedWay=copy.deepcopy(orientedArraySmejnost)
+    simpleCycle=copy.deepcopy(arrayIncedent)
 
 
-max=int(input('Введите размер пути: '))
-orientedWayGraph=np.zeros(2*max, int).reshape(2,max)
-oriented_way_graph_array(orientedWay, orientedWayGraph, max, numV)
+    # Преобразование неориентированной матрицы смежности в ориентированную
+    orientedArraySmejnost=copy.deepcopy(arraySmejnost)
+    oriented_smejnost_array(orientedArraySmejnost)
+                
+    print('Вывод ориентированной матрицы смежности: ')
+    orientedArraySmejnost
 
-print('Путь в ориентированном графе: ')
-print (orientedWayGraph)
+    # Создание ориентированной матрицы инцедентности
+    orientedArrayIncedent=np.zeros(numV*numE, int).reshape(numV,numE)
+    oriented_incedent_array(orientedArrayIncedent)
 
-# Простой путь для ориентированного графа
+    print('Вывод ориентированной матрицы инцидентности: ')
+    orientedArrayIncedent
 
-orientedSimpleWay=copy.deepcopy(orientedArraySmejnost)
+    #Отрисовка ориентированного графа
 
-max=int(input('Введите размер пути: '))
-orientedSimpleWayGraph=np.zeros(2*max, int).reshape(2,max)
-oriented_simple_way_graph_array(orientedSimpleWay, orientedSimpleWayGraph, max, numV)
-    
-    
-print('Путь в ориентированном графе: ')
-print (orientedSimpleWayGraph)
+    orientedGraph= Digraph(comment="Ориентированный граф'")
 
-# Контур для ориентированного графа
-# Контур - это путь, у которого совпадает начальная и конечная вершины
-# !!!!!! СРАВНЕНИЕ КОНЕЧНОЙ ТОЧКИ С НАЧАЛЬНОЙ !!!!!!!!!
+    # Создание вершин ориентированного графа
+    for i in range(0,numV):
+        orientedGraph.node(f'{i+1}',f'{i+1}')
+
+    # Запись ребер по матрице смежности
+    for i in range(0,numV):
+        for j in range(0,numV):
+                if orientedArraySmejnost[i][j] != 0:
+                    orientedGraph.edge(f'{i+1}',f'{j+1}')
+
+    # Сохранение ориентированного графа
+    orientedGraph.save('orientedGraph.dot', None)
+    (orientedGraph,) = pydot.graph_from_dot_file('orientedGraph.dot')
+    orientedGraph.write_png('orientedGraph.png')
+    os.remove('orientedGraph.dot')
+    # display(Image(filename='orientedGraph.png'))
+
+    # Ориентированный маршрут для ориентированного графа
+
+    orientedRoute=copy.deepcopy(orientedArraySmejnost)
+
+    max=int(input('Введите размер ориентированного маршрута: '))
+    orientedRouteGraph=np.zeros(2*max, int).reshape(2,max)
+
+    oriented_route_graph_array(orientedRoute, orientedRouteGraph, max, numV)
+    print('Маршрут в ориентированном графе: ')
+    print (orientedRouteGraph)
+
+    # Путь для ориентированного графа
+
+    orientedWay=copy.deepcopy(orientedArraySmejnost)
+
+
+    max=int(input('Введите размер пути: '))
+    orientedWayGraph=np.zeros(2*max, int).reshape(2,max)
+    oriented_way_graph_array(orientedWay, orientedWayGraph, max, numV)
+
+    print('Путь в ориентированном графе: ')
+    print (orientedWayGraph)
+
+    # Простой путь для ориентированного графа
+
+    orientedSimpleWay=copy.deepcopy(orientedArraySmejnost)
+
+    max=int(input('Введите размер пути: '))
+    orientedSimpleWayGraph=np.zeros(2*max, int).reshape(2,max)
+    oriented_simple_way_graph_array(orientedSimpleWay, orientedSimpleWayGraph, max, numV)
+        
+        
+    print('Путь в ориентированном графе: ')
+    print (orientedSimpleWayGraph)
+
+    # Контур для ориентированного графа
+    # Контур - это путь, у которого совпадает начальная и конечная вершины
+    # !!!!!! СРАВНЕНИЕ КОНЕЧНОЙ ТОЧКИ С НАЧАЛЬНОЙ !!!!!!!!!
 
 
 
-# Простой контур для ориентированного графа
-# Простой контур - это простой путь, у которого совпадают начальные и конечные вершины
+    # Простой контур для ориентированного графа
+    # Простой контур - это простой путь, у которого совпадают начальные и конечные вершины
 
 
 
