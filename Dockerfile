@@ -12,6 +12,6 @@ COPY . .
 RUN apt update
 RUN apt install graphviz -y
 
-RUN pip3 install matplotlib numpy graphviz pydot IPython 
+RUN pip3 install matplotlib numpy graphviz pydot IPython networkx pillow
 
-CMD ["python", "task1.py"]
+CMD ["python", "gsht.py"]
