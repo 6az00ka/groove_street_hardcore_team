@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>groove_street_hardcore_team.task_3_velikanov API documentation</title>
+<meta name="description" content="**Задание &#34;Автоматическая документация кода&#34; Великанов Иван 181-331**" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>groove_street_hardcore_team.task_3_velikanov</code></h1>
+</header>
+<section id="section-intro">
+<h1 id="181-331"><strong>Задание "Автоматическая документация кода" Великанов Иван 181-331</strong></h1>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+# **Задание \&#34;Автоматическая документация кода\&#34; Великанов Иван 181-331** 
+&#34;&#34;&#34;
+
+from turtle import circle, color
+import numpy as np
+import itertools as itoo
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# from pdoc.html_helpers import extract_toc
+# extract_toc(&#34;Задание \&#34;Автоматическая документация кода\&#34; Великанов Иван 181-331 &#34;)
+
+
+# Функция, которая запоминает индексы вершин по необходимой вершине
+def e_indices(E, value):
+    &#34;&#34;&#34;
+    # Функция, которая запоминает индексы вершин по необходимой вершине
+    ## Принимает на вход 2 параметра:
+       - 1 - E(Множество ребер)
+       - 2 - value (Вершина из которой ищутся ребра)
+    ## Функция возвращает массив индексов вершин с которыми есть ребра
+    &#34;&#34;&#34;
+    arr = []
+    for x in range(len(E)):
+        if E[x][0] == value:
+            arr.append(x)
+    return arr
+
+# Функция, которая считает количество едениц в строке в матрице смежности
+
+
+def count_ones(arr):
+    &#34;&#34;&#34;
+    # Функция, которая считает количество едениц в строке в матрице смежности
+    ## Принимает на вход 1 параметр:
+       - arr - строка матрицы
+    ## Функция возвращает остаток от деления на 2 количества единиц в строке матрицы
+    &#34;&#34;&#34;
+    i = 0
+    for x in arr:
+        if x == 1:
+            i += 1
+    I2 = i % 2
+    return I2
+
+# def zeros_indices(arr, ind):
+#     arr1 = []
+#     for i, x in enumerate(arr):
+#         if x == 0 and i!=ind:
+#             arr1.append(i)
+#     return arr1
+
+# Функция, которая проверяет является ли граф эйлеровым
+
+
+def check_ayler(M, V):
+    &#34;&#34;&#34;
+    # Функция, которая проверяет является ли граф эйлеровым
+    ## Функция принимает на вход 2 аргумента:
+       - 1 - M (Матрица смежности)
+       - 2 - V (МНожество вершин)
+    ## Функция возвращает значения:
+       - 1 - Bool значение является ли граф эйлеровым
+       - 2 - Массив в который записываются индексы вершин с нечетным количеством ребер, если граф эйлеровый то массив вернется пустым
+    &#34;&#34;&#34;
+    p = 0
+    errors = []
+    for m, x in enumerate(M):
+        ones = count_ones(x)
+        if ones == 0:
+            p += 1
+        else:
+            errors.append(m)
+    return p == len(V), errors
+
+# Функция, которая строит матрицу смежности
+
+
+def adjacency_matrix(V, E):
+    &#34;&#34;&#34;
+    # Функция, которая строит матрицу смежности
+    ## Функия принимает на вход 2 аргумента:
+       - 1 - V (Множество вершин)
+       - 2 - E (Множество ребер)
+    ## Функция возвращает матрицу смежности
+    &#34;&#34;&#34;
+    M = []
+    for x in range(len(V)):
+        arr = []
+        for y in range(len(V)):
+            arr.append(0)
+        M.append(arr)
+    for m in range(len(M)):
+        arr = e_indices(E, V[m])
+        if arr != []:
+            for j in arr:
+                ind = V.index(E[j][1])
+                if ind != m:
+                    M[m][ind], M[ind][m] = 1, 1
+    return M
+
+
+# Функция, которая достраивает граф до эйлерового
+def additional_ones(M, errors):
+    &#34;&#34;&#34;
+    # Функция, которая достраивает граф до эйлерового
+    ## Функция принимает на вход 2 агрумента:
+       - 1 - M (Матрица смежности)
+       - 2 - errors (Массив в который записаны индексы вершин с нечетным количеством ребер)
+    ## Функция возвращает:
+       - Матрицу смежности достроенного графа
+    &#34;&#34;&#34;
+    for x in itoo.permutations(errors, 2):
+        M[x[0]][x[1]] = 1
+    return M
+
+# Функция, которая возвращает индексы вершин в которые можно попасть из вершины индекс которой подается на вход
+
+
+def get_path_points(M, ind):
+    &#34;&#34;&#34;
+    # Функция, которая возвращает индексы вершин в которые можно попасть из вершины индекс которой подается на вход
+    ## Функция принимает на вход 2 аргумента:
+       - 1 - M (Матрица смежности)
+       - 2 - ind (Индекс вершины из которой рассматривается наличие ребер)
+    ## Функция возвращает:
+       - Массив индексов вершин с которыми есть связь
+    &#34;&#34;&#34;
+    arr = []
+    for x in range(len(M[ind])):
+        if M[ind][x] &gt; 0:
+            arr.append(x)
+    return arr
+
+# Функция, которая находит эйлеров цикл
+
+
+def ayler_cycle(M, V):
+    &#34;&#34;&#34;
+    # Функция, которая находит эйлеров цикл
+    ## Функция принимает на вход 2 аргумента:
+       - 1 - M (Матрица смежности)
+       - 2 - V (Множество вершин)
+    ## Функция возвращает:
+       - Массив в котором перечислины вершины в нужном порядке
+    &#34;&#34;&#34;
+    i = 0
+    j = 0
+    k = 0
+    cycle = []
+    cycle.append(V[i])
+    while k != len(V):
+        arr = get_path_points(M, i)
+        for x in arr:
+            if V[x] not in cycle:
+                z = x
+                cycle.append(V[x])
+                break
+        k += 1
+        i = z
+    return cycle
+
+# print(&#39;Hello Ivan&#39;)
+
+
+V = [&#34;V1&#34;, &#34;V2&#34;, &#34;V3&#34;, &#34;V4&#34;, &#34;V5&#34;, &#34;V6&#34;, &#34;V7&#34;, &#34;V8&#34;]
+
+E = [[&#34;V1&#34;, &#34;V6&#34;], [&#34;V1&#34;, &#34;V8&#34;], [&#34;V2&#34;, &#34;V6&#34;], [&#34;V2&#34;, &#34;V7&#34;], [&#34;V3&#34;, &#34;V4&#34;], [&#34;V3&#34;, &#34;V5&#34;], [
+    &#34;V3&#34;, &#34;V6&#34;], [&#34;V3&#34;, &#34;V8&#34;], [&#34;V4&#34;, &#34;V5&#34;], [&#34;V4&#34;, &#34;V6&#34;], [&#34;V4&#34;, &#34;V8&#34;], [&#34;V7&#34;, &#34;V8&#34;]]
+
+# E={(1,6),(1,8), (2,6),(2,7),(3,4),(3,5), (3,6),(3,8),(4,5),(4,6),(4,8),(7,8)}
+
+
+# V=[&#34;v1&#34;,&#34;v2&#34;,&#34;v3&#34;,&#34;v4&#34;,&#34;v5&#34;,&#34;v6&#34;,&#34;v7&#34;,&#34;v8&#34;,&#34;v9&#34;]
+# E=[[&#34;v1&#34;,&#34;v2&#34;],[&#34;v1&#34;,&#34;v7&#34;],[&#34;v1&#34;,&#34;v8&#34;],[&#34;v1&#34;,&#34;v9&#34;],[&#34;v2&#34;,&#34;v3&#34;],[&#34;v2&#34;,&#34;v7&#34;],[&#34;v2&#34;,&#34;v9&#34;],[&#34;v3&#34;,&#34;v4&#34;],[&#34;v3&#34;,&#34;v6&#34;],[&#34;v3&#34;,&#34;v9&#34;],[&#34;v4&#34;,&#34;v5&#34;],[&#34;v4&#34;,&#34;v6&#34;],[&#34;v4&#34;,&#34;v7&#34;],[&#34;v5&#34;,&#34;v6&#34;],[&#34;v6&#34;,&#34;v7&#34;],[&#34;v6&#34;,&#34;v8&#34;],[&#34;v6&#34;,&#34;v9&#34;],[&#34;v7&#34;,&#34;v9&#34;],[&#34;v8&#34;,&#34;v9&#34;]]
+
+
+M1 = adjacency_matrix(V, E)
+for k in M1:
+    print(k)
+# quit()
+bool_ayler, errors = check_ayler(M1, V)
+print(bool_ayler)
+
+
+new_M1 = additional_ones(M1, errors)
+for k in new_M1:
+    print(k)
+bool_ayler1, errors1 = check_ayler(new_M1, V)
+print(bool_ayler1)
+
+# print(ayler_cycle(new_M1, V))
+
+ayler_cycle_temp = ayler_cycle(new_M1, V)
+print(ayler_cycle_temp)
+
+
+######
+
+# python3 -m pdoc --html . --output-dir html_pdoc/ --force
+
+############
+
+def func_for_draw_ayler_cycle(V):
+    &#34;&#34;&#34;
+    # Функция которая прнимает массив вершин, и возвращает двухмерный массив эйлерового цикла [(откуда-куда), (откуда-куда)] (Нужно для рисования)
+    &#34;&#34;&#34;
+    ayler_links = []
+    for x in range(len(V)-1):
+        ayler_links.append((V[x], V[x+1]))
+
+    return ayler_links
+
+
+temp = func_for_draw_ayler_cycle(ayler_cycle_temp)
+print(temp)
+
+
+# G1 = nx.Graph()
+# G1.add_edges_from(E)
+# nx.draw(G1, with_labels=True)
+# # plt.show()
+# plt.savefig(&#39;data/graph.jpg&#39;)
+
+
+G = nx.Graph()
+G.add_node(temp[0][0], color=&#39;g&#39;)
+
+G.add_edges_from(E, color=&#39;b&#39;)
+# G.remove_edges_from(temp)
+G.add_edges_from(temp, color=&#39;r&#39;)
+edges = G.edges()
+
+# массив цветов ребер
+colors = [G[u][v][&#39;color&#39;] for u, v in edges]
+
+# массив цветов вершин
+color_map = []
+for node in G.nodes():
+    if node == temp[0][0]:
+        color_map.append(&#39;green&#39;)
+    elif node == temp[len(temp) - 1][1]:
+        color_map.append(&#39;green&#39;)
+    else:
+        color_map.append(&#39;blue&#39;)
+
+# строим граф
+nx.draw(G, with_labels=True, edge_color=colors, node_color=color_map)
+# plt.show()
+# plt.savefig(&#39;data/ayler_cicle.jpg&#39;)
+
+print(&#34;It&#39;s OKEY!&#34;)
+
+print(&#34;Чтобы скопировать картинку из докера введите эту команду в терминале основной машины&#34;)
+print(&#34;docker cp container_name:/app/data/ayler_cicle.jpg path_kyda_zakinut&#34;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="groove_street_hardcore_team.task_3_velikanov.additional_ones"><code class="name flex">
+<span>def <span class="ident">additional_ones</span></span>(<span>M, errors)</span>
+</code></dt>
+<dd>
+<div class="desc"><h1 id="_1">Функция, которая достраивает граф до эйлерового</h1>
+<h2 id="2">Функция принимает на вход 2 агрумента:</h2>
+<ul>
+<li>1 - M (Матрица смежности)</li>
+<li>2 - errors (Массив в который записаны индексы вершин с нечетным количеством ребер)</li>
+</ul>
+<h2 id="_2">Функция возвращает:</h2>
+<ul>
+<li>Матрицу смежности достроенного графа</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def additional_ones(M, errors):
+    &#34;&#34;&#34;
+    # Функция, которая достраивает граф до эйлерового
+    ## Функция принимает на вход 2 агрумента:
+       - 1 - M (Матрица смежности)
+       - 2 - errors (Массив в который записаны индексы вершин с нечетным количеством ребер)
+    ## Функция возвращает:
+       - Матрицу смежности достроенного графа
+    &#34;&#34;&#34;
+    for x in itoo.permutations(errors, 2):
+        M[x[0]][x[1]] = 1
+    return M</code></pre>
+</details>
+</dd>
+<dt id="groove_street_hardcore_team.task_3_velikanov.adjacency_matrix"><code class="name flex">
+<span>def <span class="ident">adjacency_matrix</span></span>(<span>V, E)</span>
+</code></dt>
+<dd>
+<div class="desc"><h1 id="_1">Функция, которая строит матрицу смежности</h1>
+<h2 id="2">Функия принимает на вход 2 аргумента:</h2>
+<ul>
+<li>1 - V (Множество вершин)</li>
+<li>2 - E (Множество ребер)</li>
+</ul>
+<h2 id="_2">Функция возвращает матрицу смежности</h2></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def adjacency_matrix(V, E):
+    &#34;&#34;&#34;
+    # Функция, которая строит матрицу смежности
+    ## Функия принимает на вход 2 аргумента:
+       - 1 - V (Множество вершин)
+       - 2 - E (Множество ребер)
+    ## Функция возвращает матрицу смежности
+    &#34;&#34;&#34;
+    M = []
+    for x in range(len(V)):
+        arr = []
+        for y in range(len(V)):
+            arr.append(0)
+        M.append(arr)
+    for m in range(len(M)):
+        arr = e_indices(E, V[m])
+        if arr != []:
+            for j in arr:
+                ind = V.index(E[j][1])
+                if ind != m:
+                    M[m][ind], M[ind][m] = 1, 1
+    return M</code></pre>
+</details>
+</dd>
+<dt id="groove_street_hardcore_team.task_3_velikanov.ayler_cycle"><code class="name flex">
+<span>def <span class="ident">ayler_cycle</span></span>(<span>M, V)</span>
+</code></dt>
+<dd>
+<div class="desc"><h1 id="_1">Функция, которая находит эйлеров цикл</h1>
+<h2 id="2">Функция принимает на вход 2 аргумента:</h2>
+<ul>
+<li>1 - M (Матрица смежности)</li>
+<li>2 - V (Множество вершин)</li>
+</ul>
+<h2 id="_2">Функция возвращает:</h2>
+<ul>
+<li>Массив в котором перечислины вершины в нужном порядке</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def ayler_cycle(M, V):
+    &#34;&#34;&#34;
+    # Функция, которая находит эйлеров цикл
+    ## Функция принимает на вход 2 аргумента:
+       - 1 - M (Матрица смежности)
+       - 2 - V (Множество вершин)
+    ## Функция возвращает:
+       - Массив в котором перечислины вершины в нужном порядке
+    &#34;&#34;&#34;
+    i = 0
+    j = 0
+    k = 0
+    cycle = []
+    cycle.append(V[i])
+    while k != len(V):
+        arr = get_path_points(M, i)
+        for x in arr:
+            if V[x] not in cycle:
+                z = x
+                cycle.append(V[x])
+                break
+        k += 1
+        i = z
+    return cycle</code></pre>
+</details>
+</dd>
+<dt id="groove_street_hardcore_team.task_3_velikanov.check_ayler"><code class="name flex">
+<span>def <span class="ident">check_ayler</span></span>(<span>M, V)</span>
+</code></dt>
+<dd>
+<div class="desc"><h1 id="_1">Функция, которая проверяет является ли граф эйлеровым</h1>
+<h2 id="2">Функция принимает на вход 2 аргумента:</h2>
+<ul>
+<li>1 - M (Матрица смежности)</li>
+<li>2 - V (МНожество вершин)</li>
+</ul>
+<h2 id="_2">Функция возвращает значения:</h2>
+<ul>
+<li>1 - Bool значение является ли граф эйлеровым</li>
+<li>2 - Массив в который записываются индексы вершин с нечетным количеством ребер, если граф эйлеровый то массив вернется пустым</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_ayler(M, V):
+    &#34;&#34;&#34;
+    # Функция, которая проверяет является ли граф эйлеровым
+    ## Функция принимает на вход 2 аргумента:
+       - 1 - M (Матрица смежности)
+       - 2 - V (МНожество вершин)
+    ## Функция возвращает значения:
+       - 1 - Bool значение является ли граф эйлеровым
+       - 2 - Массив в который записываются индексы вершин с нечетным количеством ребер, если граф эйлеровый то массив вернется пустым
+    &#34;&#34;&#34;
+    p = 0
+    errors = []
+    for m, x in enumerate(M):
+        ones = count_ones(x)
+        if ones == 0:
+            p += 1
+        else:
+            errors.append(m)
+    return p == len(V), errors</code></pre>
+</details>
+</dd>
+<dt id="groove_street_hardcore_team.task_3_velikanov.count_ones"><code class="name flex">
+<span>def <span class="ident">count_ones</span></span>(<span>arr)</span>
+</code></dt>
+<dd>
+<div class="desc"><h1 id="_1">Функция, которая считает количество едениц в строке в матрице смежности</h1>
+<h2 id="1">Принимает на вход 1 параметр:</h2>
+<ul>
+<li>arr - строка матрицы</li>
+</ul>
+<h2 id="2">Функция возвращает остаток от деления на 2 количества единиц в строке матрицы</h2></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def count_ones(arr):
+    &#34;&#34;&#34;
+    # Функция, которая считает количество едениц в строке в матрице смежности
+    ## Принимает на вход 1 параметр:
+       - arr - строка матрицы
+    ## Функция возвращает остаток от деления на 2 количества единиц в строке матрицы
+    &#34;&#34;&#34;
+    i = 0
+    for x in arr:
+        if x == 1:
+            i += 1
+    I2 = i % 2
+    return I2</code></pre>
+</details>
+</dd>
+<dt id="groove_street_hardcore_team.task_3_velikanov.e_indices"><code class="name flex">
+<span>def <span class="ident">e_indices</span></span>(<span>E, value)</span>
+</code></dt>
+<dd>
+<div class="desc"><h1 id="_1">Функция, которая запоминает индексы вершин по необходимой вершине</h1>
+<h2 id="2">Принимает на вход 2 параметра:</h2>
+<ul>
+<li>1 - E(Множество ребер)</li>
+<li>2 - value (Вершина из которой ищутся ребра)</li>
+</ul>
+<h2 id="_2">Функция возвращает массив индексов вершин с которыми есть ребра</h2></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def e_indices(E, value):
+    &#34;&#34;&#34;
+    # Функция, которая запоминает индексы вершин по необходимой вершине
+    ## Принимает на вход 2 параметра:
+       - 1 - E(Множество ребер)
+       - 2 - value (Вершина из которой ищутся ребра)
+    ## Функция возвращает массив индексов вершин с которыми есть ребра
+    &#34;&#34;&#34;
+    arr = []
+    for x in range(len(E)):
+        if E[x][0] == value:
+            arr.append(x)
+    return arr</code></pre>
+</details>
+</dd>
+<dt id="groove_street_hardcore_team.task_3_velikanov.func_for_draw_ayler_cycle"><code class="name flex">
+<span>def <span class="ident">func_for_draw_ayler_cycle</span></span>(<span>V)</span>
+</code></dt>
+<dd>
+<div class="desc"><h1 id="-">Функция которая прнимает массив вершин, и возвращает двухмерный массив эйлерового цикла [(откуда-куда), (откуда-куда)] (Нужно для рисования)</h1></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def func_for_draw_ayler_cycle(V):
+    &#34;&#34;&#34;
+    # Функция которая прнимает массив вершин, и возвращает двухмерный массив эйлерового цикла [(откуда-куда), (откуда-куда)] (Нужно для рисования)
+    &#34;&#34;&#34;
+    ayler_links = []
+    for x in range(len(V)-1):
+        ayler_links.append((V[x], V[x+1]))
+
+    return ayler_links</code></pre>
+</details>
+</dd>
+<dt id="groove_street_hardcore_team.task_3_velikanov.get_path_points"><code class="name flex">
+<span>def <span class="ident">get_path_points</span></span>(<span>M, ind)</span>
+</code></dt>
+<dd>
+<div class="desc"><h1 id="_1">Функция, которая возвращает индексы вершин в которые можно попасть из вершины индекс которой подается на вход</h1>
+<h2 id="2">Функция принимает на вход 2 аргумента:</h2>
+<ul>
+<li>1 - M (Матрица смежности)</li>
+<li>2 - ind (Индекс вершины из которой рассматривается наличие ребер)</li>
+</ul>
+<h2 id="_2">Функция возвращает:</h2>
+<ul>
+<li>Массив индексов вершин с которыми есть связь</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_path_points(M, ind):
+    &#34;&#34;&#34;
+    # Функция, которая возвращает индексы вершин в которые можно попасть из вершины индекс которой подается на вход
+    ## Функция принимает на вход 2 аргумента:
+       - 1 - M (Матрица смежности)
+       - 2 - ind (Индекс вершины из которой рассматривается наличие ребер)
+    ## Функция возвращает:
+       - Массив индексов вершин с которыми есть связь
+    &#34;&#34;&#34;
+    arr = []
+    for x in range(len(M[ind])):
+        if M[ind][x] &gt; 0:
+            arr.append(x)
+    return arr</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#181-331">Задание "Автоматическая документация кода" Великанов Иван 181-331</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="groove_street_hardcore_team" href="index.html">groove_street_hardcore_team</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="groove_street_hardcore_team.task_3_velikanov.additional_ones" href="#groove_street_hardcore_team.task_3_velikanov.additional_ones">additional_ones</a></code></li>
+<li><code><a title="groove_street_hardcore_team.task_3_velikanov.adjacency_matrix" href="#groove_street_hardcore_team.task_3_velikanov.adjacency_matrix">adjacency_matrix</a></code></li>
+<li><code><a title="groove_street_hardcore_team.task_3_velikanov.ayler_cycle" href="#groove_street_hardcore_team.task_3_velikanov.ayler_cycle">ayler_cycle</a></code></li>
+<li><code><a title="groove_street_hardcore_team.task_3_velikanov.check_ayler" href="#groove_street_hardcore_team.task_3_velikanov.check_ayler">check_ayler</a></code></li>
+<li><code><a title="groove_street_hardcore_team.task_3_velikanov.count_ones" href="#groove_street_hardcore_team.task_3_velikanov.count_ones">count_ones</a></code></li>
+<li><code><a title="groove_street_hardcore_team.task_3_velikanov.e_indices" href="#groove_street_hardcore_team.task_3_velikanov.e_indices">e_indices</a></code></li>
+<li><code><a title="groove_street_hardcore_team.task_3_velikanov.func_for_draw_ayler_cycle" href="#groove_street_hardcore_team.task_3_velikanov.func_for_draw_ayler_cycle">func_for_draw_ayler_cycle</a></code></li>
+<li><code><a title="groove_street_hardcore_team.task_3_velikanov.get_path_points" href="#groove_street_hardcore_team.task_3_velikanov.get_path_points">get_path_points</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
