@@ -7,7 +7,7 @@
 Папка tests
 
 ## Документация по модулям
-Файлы в личных ветках каждого из участников
+Папка html
 
 ## Стратегия тестирования
 https://docs.google.com/spreadsheets/d/1Lyd1x-gOIpEULhIiiwzNQhxN6o_y6Bi-/edit?usp=sharing&ouid=116518513111554135372&rtpof=true&sd=true
