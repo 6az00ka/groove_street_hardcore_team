@@ -1,4 +1,6 @@
-
+__pycache__
 __main__.py
 Dockerfile
-README.md
+*.png
+*.gif
+dijkstra_not_module.py
